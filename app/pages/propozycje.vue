@@ -22,7 +22,7 @@ async function invite(userId: string) {
 
 <template>
   <div class="page">
-    <ScreenTop back="/szukamy" title="Propozycje" />
+    <ScreenTop back="/listy" title="Propozycje" />
     <main class="body" style="gap: 14px">
       <template v-if="data?.full">
         <InfoNote icon="info">Masz już {{ data.limit }} korespondentów. Zakończ jedną znajomość, aby poznać kogoś nowego.</InfoNote>

@@ -1,18 +1,15 @@
 <script setup lang="ts">
-import type { PairingView } from '#shared/types/api'
 import { ageLabel, channelLabel, initial } from '#shared/utils/polish'
 
 definePageMeta({ layout: 'default' })
 const { profile, refreshProfile, saveProfile } = useProfile()
 await refreshProfile()
-const { data: pairings } = await useFetch<PairingView[]>('/api/pairings', { default: () => [] })
-const firstActive = computed(() => pairings.value.find(p => p.status === 'ACTIVE'))
 
 const premiumInfo = ref(false)
 const ffMessage = ref('')
 const error = ref('')
 
-async function toggle(key: 'notifyNewLetter' | 'notifyDelivered', el: HTMLInputElement) {
+async function toggle(key: 'notifyNewLetter', el: HTMLInputElement) {
   const value = el.checked
   error.value = ''
   try { await saveProfile({ [key]: value }) }
@@ -40,24 +37,41 @@ async function fastForward() {
 
 <template>
   <div v-if="profile" class="page">
-    <header class="row" style="padding: 32px 20px 8px">
+    <header class="row" style="padding: 32px 20px 8px; align-items: flex-start">
       <div class="avatar" aria-hidden="true" style="width: 64px; height: 64px; border-radius: 32px; font-size: 26px">{{ initial(profile.name ?? '') }}</div>
       <div style="flex: 1; min-width: 0">
         <h1 class="h1" style="font-size: 28px">{{ profile.name }}</h1>
         <div class="muted">
           {{ profile.ageRange ? ageLabel(profile.ageRange) : '' }} · {{ profile.channel ? channelLabel(profile.channel) : '' }}
-          <!-- (new copy): channel and bio are edited on the Kanał screen -->
-          <NuxtLink to="/profil/kanal?edit=1" style="font-weight: 700; margin-left: 8px; min-height: 48px; display: inline-flex; align-items: center">Zmień</NuxtLink>
         </div>
       </div>
       <NuxtLink class="chip" to="/profil/o-mnie?edit=1">Edytuj</NuxtLink>
     </header>
     <main class="body" style="gap: 14px; padding-top: 12px">
       <section class="card" style="display: flex; flex-direction: column; gap: 10px">
-        <div class="label">Zainteresowania</div>
-        <div class="chips" style="gap: 6px">
+        <div class="row" style="justify-content: space-between">
+          <div class="label">Zainteresowania</div>
+          <NuxtLink to="/profil/zainteresowania?edit=1" style="font-weight: 700; min-height: 48px; display: inline-flex; align-items: center">Zmień</NuxtLink>
+        </div>
+        <div class="tag-grid">
           <span v-for="i in profile.interests" :key="i" class="tag">{{ i }}</span>
-          <NuxtLink to="/profil/zainteresowania?edit=1" style="align-self: center; font-weight: 700; min-height: 48px; display: inline-flex; align-items: center">Zmień</NuxtLink>
+        </div>
+        <div class="divider" />
+        <!-- Channel and bio are edited on the Kanał screen; labels reuse its copy -->
+        <div class="row" style="justify-content: space-between">
+          <div>
+            <div class="label">Jak wolisz pisać?</div>
+            <div class="muted">{{ profile.channel === 'PAPER' ? 'List papierowy' : 'Wiadomość w aplikacji' }}</div>
+          </div>
+          <NuxtLink to="/profil/kanal?edit=1" aria-label="Zmień sposób pisania" style="font-weight: 700; min-height: 48px; display: inline-flex; align-items: center">Zmień</NuxtLink>
+        </div>
+        <div class="divider" />
+        <div class="row" style="justify-content: space-between; align-items: flex-start">
+          <div style="min-width: 0">
+            <div class="label">Krótko o mnie</div>
+            <div class="muted bio-preview">{{ profile.bio || '—' }}</div>
+          </div>
+          <NuxtLink to="/profil/kanal?edit=1" aria-label="Zmień opis o sobie" style="font-weight: 700; min-height: 48px; display: inline-flex; align-items: center; flex: none">Zmień</NuxtLink>
         </div>
         <div class="divider" />
         <div class="row" style="justify-content: space-between">
@@ -86,17 +100,9 @@ async function fastForward() {
           Przyszedł nowy list
           <input type="checkbox" :checked="profile.notifyNewLetter" style="width: 26px; height: 26px; accent-color: #1F2A44; margin: 0" @change="toggle('notifyNewLetter', $event.target as HTMLInputElement)">
         </label>
-        <label class="row" style="justify-content: space-between; min-height: 48px; font-size: 17px">
-          Mój list dotarł
-          <input type="checkbox" :checked="profile.notifyDelivered" style="width: 26px; height: 26px; accent-color: #1F2A44; margin: 0" @change="toggle('notifyDelivered', $event.target as HTMLInputElement)">
-        </label>
         <p v-if="error" class="error" role="alert">{{ error }}</p>
       </section>
 
-      <NuxtLink v-if="firstActive" class="card row" style="justify-content: space-between" :to="`/korespondenci/${firstActive.id}/zglos`">
-        <span class="row"><AppIcon name="shield" />Zgłoś korespondenta</span>
-        <AppIcon name="chevron" style="color: #5E667A" />
-      </NuxtLink>
 
       <!-- (new copy) -->
       <AppButton variant="outline" @click="signOut">Wyloguj się</AppButton>
@@ -109,3 +115,10 @@ async function fastForward() {
     </main>
   </div>
 </template>
+
+<style scoped>
+/* Equal-width interest badges, two per row */
+.tag-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+.tag-grid .tag { justify-content: center; text-align: center; }
+.bio-preview { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+</style>

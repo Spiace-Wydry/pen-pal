@@ -2,6 +2,11 @@
 definePageMeta({ layout: 'plain' })
 const { profile, refreshProfile } = useProfile()
 if (!profile.value) await refreshProfile()
+
+// Brief "searching" moment after onboarding, then show the proposals. replace: Back from Propozycje won't land here again.
+let timer: ReturnType<typeof setTimeout> | undefined
+onMounted(() => { timer = setTimeout(() => navigateTo('/propozycje', { replace: true }), 3000) })
+onBeforeUnmount(() => clearTimeout(timer))
 </script>
 
 <template>

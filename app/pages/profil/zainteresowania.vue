@@ -35,12 +35,12 @@ async function submit() {
         <h1 class="h1">Co lubisz?</h1>
         <p class="p">Wybierz od 3 do 8 zainteresowań. Po nich znajdziemy Ci korespondenta.</p>
       </div>
-      <ChipPicker v-model="interests" :options="INTERESTS" multiple :max="8" label="Zainteresowania" />
+      <ChipPicker v-model="interests" :options="INTERESTS" multiple :max="8" grid label="Zainteresowania" />
       <p class="muted" style="font-weight: 700" aria-live="polite">Wybrano {{ interests.length }} z 8</p>
       <div class="divider" />
       <div class="field">
         <div class="label">W jakich językach chcesz pisać?</div>
-        <ChipPicker v-model="languages" :options="LANGUAGES" multiple label="Języki listów" />
+        <ChipPicker v-model="languages" :options="LANGUAGES" multiple grid label="Języki listów" />
       </div>
       <p v-if="error" class="error" role="alert">{{ error }}</p>
     </main>
