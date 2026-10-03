@@ -29,7 +29,7 @@ function next() {
   <div v-if="p" class="page">
     <ScreenTop :back="`/korespondenci/${id}`" title="Dodaj zdjęcie listu" :subtitle="`Do: ${p.partner.name}`" />
     <main class="body" style="gap: 16px">
-      <p class="p">Napisałeś list ręcznie? Zrób zdjęcie każdej strony — dostarczymy je jak skan.</p>
+      <p class="p">Napisałeś list ręcznie? Zrób zdjęcie każdej strony — dostarczymy je jak list.</p>
       <input ref="input" class="sr-only" type="file" accept="image/jpeg,image/png" multiple tabindex="-1" aria-hidden="true" @change="add">
       <button type="button" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; min-height: 180px; border: 2px dashed #A8432A; border-radius: 16px; background: #FBF7EE; color: #1F2A44; font-family: inherit; cursor: pointer" @click="input?.click()">
         <AppIcon name="camera" :size="40" :stroke-width="1.8" style="color: #A8432A" />

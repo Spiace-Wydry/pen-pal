@@ -7,7 +7,6 @@ const email = ref('')
 const password = ref('')
 const adult = ref(false)
 const rodo = ref(false)
-const scans = ref(false)
 const error = ref('')
 const busy = ref(false)
 
@@ -25,7 +24,6 @@ async function submit() {
     return
   }
   if (!data.session) { error.value = 'Sprawdź skrzynkę e-mail, aby potwierdzić konto.'; return }
-  try { await $fetch('/api/me', { method: 'PATCH', body: { scanConsent: scans.value } }) } catch { /* never block onboarding */ }
   profile.value = null
   await navigateTo('/profil/o-mnie')
 }
@@ -50,7 +48,6 @@ async function submit() {
       <div style="display: flex; flex-direction: column; gap: 14px; padding-top: 4px">
         <label style="display: flex; gap: 12px; align-items: flex-start; font-size: 17px; line-height: 1.4; min-height: 48px"><input v-model="adult" type="checkbox" required style="width: 26px; height: 26px; accent-color: #1F2A44; flex: none; margin: 0">Mam ukończone 18 lat</label>
         <label style="display: flex; gap: 12px; align-items: flex-start; font-size: 17px; line-height: 1.4; min-height: 48px"><input v-model="rodo" type="checkbox" required style="width: 26px; height: 26px; accent-color: #1F2A44; flex: none; margin: 0">Akceptuję regulamin i zgadzam się na przetwarzanie moich danych (RODO)</label>
-        <label style="display: flex; gap: 12px; align-items: flex-start; font-size: 17px; line-height: 1.4; min-height: 48px"><input v-model="scans" type="checkbox" style="width: 26px; height: 26px; accent-color: #1F2A44; flex: none; margin: 0">Zgadzam się na przechowywanie skanów moich listów</label>
       </div>
       <InfoNote icon="info">Zakładasz konto dla mamy lub taty? Możesz zrobić to w ich imieniu.</InfoNote>
       <p v-if="error" class="error" role="alert">{{ error }}</p>

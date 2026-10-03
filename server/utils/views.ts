@@ -99,6 +99,6 @@ export async function loadPairingView(event: H3Event, p: Tables<'pairings'>, me:
 export async function signUrls(event: H3Event, paths: string[]): Promise<string[]> {
   if (!paths.length) return []
   const { data, error } = await db(event).storage.from('letters').createSignedUrls(paths, 3600)
-  if (error || !data) throw fail(500, 'Nie udało się wczytać skanu.')
+  if (error || !data) throw fail(500, 'Nie udało się wczytać zdjęcia listu.')
   return data.map(d => d.signedUrl ?? '')
 }

@@ -1,6 +1,6 @@
 # PiszuPiszu
 
-**Łączymy pokolenia, list po liście.** PiszuPiszu connects older people who write paper letters with young people who write in an app. PiszuPiszu sits in the middle: it scans paper letters for app readers and prints app letters for paper readers. Hackathon MVP, pilot city Kraków.
+**Łączymy pokolenia, list po liście.** PiszuPiszu connects older people who write paper letters with young people who write in an app. PiszuPiszu sits in the middle: it brings photographed paper letters into the app for app readers and prints app letters for paper readers. Hackathon MVP, pilot city Kraków.
 
 Nuxt 4 + Supabase (local, Docker). UI copy is Polish. Business rules and architecture: [`CLAUDE.md`](CLAUDE.md).
 
@@ -30,7 +30,7 @@ All seeded accounts use the password `pisanielistow` (local demo data only).
 - `kuba@penpal.test` — Kuba with pen pals Halina and Tadeusz.
 - 40 more users: `<name>.s01…s20@penpal.test` (seniors), `<name>.m01…m20@penpal.test` (young).
 
-Demo helpers: **`/admin/skan`** (code from `NUXT_ADMIN_CODE`) simulates a PiszuPunkt scan; **`/dev/login`** signs in as seeded users (dev builds only).
+Demo helpers: **`/admin/skan`** (code from `NUXT_ADMIN_CODE`) simulates a letter dropped off at a PiszuPunkt; **`/dev/login`** signs in as seeded users (dev builds only).
 
 ## Scripts
 

@@ -8,8 +8,8 @@ export interface TimelineStep { label: string, at: string, done: boolean }
 const STEPS: Record<`${LetterKind}_${DeliveryChannel}`, [string, number][]> = {
   TYPED_APP: [['Wysłany', 0], ['W drodze', 0.1], ['Dostarczony', 1]],
   TYPED_PAPER: [['Wysłany', 0], ['Wydrukowany', 0.3], ['Nadany na poczcie', 0.5], ['Dostarczony', 1]],
-  SCAN_APP: [['Przyjęty w PiszuPunkcie', 0], ['Zeskanowany', 0.2], ['W drodze', 0.3], ['Dostarczony', 1]],
-  SCAN_PAPER: [['Przyjęty w PiszuPunkcie', 0], ['Zeskanowany', 0.2], ['Wysłany pocztą', 0.5], ['Dostarczony', 1]],
+  SCAN_APP: [['Przyjęty w PiszuPunkcie', 0], ['W drodze', 0.3], ['Dostarczony', 1]],
+  SCAN_PAPER: [['Przyjęty w PiszuPunkcie', 0], ['Wysłany pocztą', 0.5], ['Dostarczony', 1]],
 }
 
 export function deliverySteps(kind: LetterKind, channel: DeliveryChannel, sentAt: string, deliverAt: string, now = Date.now()): TimelineStep[] {

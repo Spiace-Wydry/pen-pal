@@ -24,7 +24,7 @@ const paper = computed(() => p.value?.partner.channel === 'PAPER')
         <h1 class="h1">Masz nowego korespondenta!</h1>
         <p class="p">
           Ty i {{ p.partner.name }} zaczynacie korespondencję.
-          <template v-if="paper">{{ p.partner.name }} pisze ręcznie — każdy list zeskanujemy dla Ciebie.</template>
+          <template v-if="paper">{{ p.partner.name }} pisze ręcznie — każdy list dostaniesz w aplikacji.</template>
         </p>
       </div>
       <div class="card" style="display: flex; flex-direction: column; gap: 8px; text-align: center; border: 1.5px dashed #A8432A">

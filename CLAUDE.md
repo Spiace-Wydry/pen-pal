@@ -1,6 +1,6 @@
 # PiszuPiszu — implementation brief
 
-PiszuPiszu connects older people who write paper letters with young people who write in an app. PiszuPiszu sits in the middle: it scans paper letters for app readers and prints app letters for paper readers. Hackathon MVP, pilot city Kraków. **All UI copy is Polish, informal "Ty" form.**
+PiszuPiszu connects older people who write paper letters with young people who write in an app. PiszuPiszu sits in the middle: it brings photographed paper letters into the app for app readers and prints app letters for paper readers. Hackathon MVP, pilot city Kraków. **All UI copy is Polish, informal "Ty" form.**
 
 The MVP is built. The original handoff (product spec, HTML design mockups, implementation plans) was removed after the build; the business rules below and the app itself are now the reference. Keep new screens consistent with the existing pages and `app/assets/css/penpal.css`.
 

@@ -21,7 +21,7 @@ async function submit() {
     fd.append('from', from.value)
     files.value.forEach(f => fd.append('pages', f))
     const r = await $fetch<{ id: string, to: string }>('/api/admin/scan', { method: 'POST', body: fd })
-    result.value = `List zeskanowany. Dotrze do: ${r.to} za 2 dni.`
+    result.value = `List przyjęty. Dotrze do: ${r.to} za 2 dni.`
     palKod.value = ''
     from.value = ''
     files.value = []
@@ -34,7 +34,7 @@ async function submit() {
 
 <template>
   <form class="page" @submit.prevent="submit">
-    <ScreenTop title="Skan w PiszuPunkcie" subtitle="Narzędzie demo" />
+    <ScreenTop title="Przyjęcie listu w PiszuPunkcie" subtitle="Narzędzie demo" />
     <main class="body">
       <div class="field">
         <label class="label" for="code">Kod obsługi</label>
@@ -56,7 +56,7 @@ async function submit() {
       <p v-if="error" class="error" role="alert">{{ error }}</p>
     </main>
     <div class="foot">
-      <AppButton type="submit" variant="stamp" :disabled="busy || !files.length">Zeskanuj list</AppButton>
+      <AppButton type="submit" variant="stamp" :disabled="busy || !files.length">Dodaj list</AppButton>
     </div>
   </form>
 </template>
