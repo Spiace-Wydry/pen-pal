@@ -13,7 +13,11 @@ export default defineNuxtConfig({
         { name: 'theme-color', content: '#F6F0E4' },
         { name: 'description', content: 'Łączymy pokolenia, list po liście.' },
       ],
-      link: [{ rel: 'apple-touch-icon', href: '/apple-touch-icon-180x180.png' }],
+      link: [
+        { rel: 'icon', type: 'image/svg+xml', href: '/logo.svg' },
+        { rel: 'icon', href: '/favicon.ico', sizes: '48x48' },
+        { rel: 'apple-touch-icon', href: '/apple-touch-icon-180x180.png' },
+      ],
     },
   },
   // All data goes through server/api; the client only uses Supabase auth. Our own middleware handles redirects.

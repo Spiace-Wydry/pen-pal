@@ -94,7 +94,7 @@ Postgres tables in Supabase (snake_case in SQL, camelCase in TS types). Auth use
 5. **PalKod:** generated per pairing; 4 chars from an alphabet without confusable characters (no 0/O/1/I), prefix `PP-`.
 6. **Slow mail:** every letter, app→app included, has `deliverAt = sentAt + 2 days`. Recipients cannot see it before then. Status shows "Twój list jest w drodze".
 7. **One letter at a time:** you can write to a pen pal only after receiving their latest letter (or for the first letter).
-8. **Delivery channel:** if the recipient prefers PAPER, default "Jako list papierowy" — generate a printable PDF of the letter with the PenPal reply footer (`Odpowiadając, napisz na kopercie: Do: <imię>, PalKod: <kod>`). Sender shown as PenPal, never a home address.
+8. **Delivery channel:** the RECIPIENT's channel preference decides delivery, not the sender. The server sets `deliveryChannel` from the recipient's `channel` when the letter is sent (PAPER → printed and posted, APP → delivered in the app); the sender has no choice on the Wyślij screen. Paper letters get a printable PDF with the PenPal reply footer (`Odpowiadając, napisz na kopercie: Do: <imię>, PalKod: <kod>`). Sender shown as PenPal, never a home address.
 9. **Scan simulation:** "Dodaj zdjęcie listu" uploads 1+ page photos; stored as a `SCAN` letter and shown to the recipient as the scan.
 
 ## Demo helpers (hackathon only)
