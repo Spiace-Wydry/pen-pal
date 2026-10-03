@@ -16,7 +16,9 @@ if (p.value && p.value.status !== 'ACTIVE' && p.value.status !== 'INVITED') awai
   <div v-if="p" class="page">
     <ScreenTop back="/listy" :title="p.partner.name" :subtitle="`PalKod ${p.palKod} · ${channelLabel(p.partner.channel)}`">
       <template #lead><div class="avatar" aria-hidden="true" style="width: 44px; height: 44px; font-size: 18px">{{ initial(p.partner.name) }}</div></template>
-      <NuxtLink class="back" :to="`/korespondenci/${id}/zglos`" aria-label="Więcej opcji"><AppIcon name="more" /></NuxtLink>
+      <NuxtLink class="back" :to="`/korespondenci/${id}/zglos`" aria-label="Zgłoś korespondenta" title="Zgłoś korespondenta">
+        <AppIcon name="alert" style="color: #8C3520" />
+      </NuxtLink>
     </ScreenTop>
     <main class="body" style="gap: 12px; padding-top: 12px">
       <LetterCard v-for="l in letters ?? []" :key="l.id" :letter="l" :partner-name="p.partner.name" />
