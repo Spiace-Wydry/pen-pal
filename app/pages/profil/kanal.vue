@@ -32,15 +32,19 @@ async function submit() {
     <ScreenTop :back="edit ? '/profil' : '/profil/zainteresowania'">
       <template v-if="!edit" #center><StepProgress :step="4" /></template>
     </ScreenTop>
-    <main class="body">
+    <main class="body" style="gap: 16px">
       <h1 class="h1">Jak wolisz pisać?</h1>
       <RadioCard v-model="channel" name="channel" value="PAPER">
-        <div class="h2">List papierowy</div>
-        <p class="muted">Piszesz ręcznie i zanosisz list do PalPointu lub PalBoxa.</p>
+        <div style="display: flex; flex-direction: column; gap: 4px">
+          <div class="h2" style="font-size: 20px">List papierowy</div>
+          <p class="muted">Piszesz ręcznie i zanosisz list do PalPointu lub PalBoxa.</p>
+        </div>
       </RadioCard>
       <RadioCard v-model="channel" name="channel" value="APP">
-        <div class="h2">Wiadomość w aplikacji</div>
-        <p class="muted">Piszesz tutaj. Jeśli Twój korespondent woli papier, wydrukujemy i wyślemy list pocztą.</p>
+        <div style="display: flex; flex-direction: column; gap: 4px">
+          <div class="h2" style="font-size: 20px">Wiadomość w aplikacji</div>
+          <p class="muted">Piszesz tutaj. Jeśli Twój korespondent woli papier, wydrukujemy i wyślemy list pocztą.</p>
+        </div>
       </RadioCard>
       <div class="field">
         <label class="label" for="bio">Krótko o mnie</label>

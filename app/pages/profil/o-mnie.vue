@@ -32,14 +32,14 @@ async function submit() {
     <ScreenTop :back="edit ? '/profil' : '/rejestracja'">
       <template v-if="!edit" #center><StepProgress :step="2" /></template>
     </ScreenTop>
-    <main class="body">
+    <main class="body" style="gap: 16px">
       <h1 class="h1">Opowiedz nam o sobie</h1>
       <div class="field">
         <label class="label" for="name">Imię</label>
         <input id="name" v-model="name" class="input" type="text" autocomplete="given-name" maxlength="40" required>
       </div>
       <div class="field">
-        <div id="age-label" class="label">Przedział wieku</div>
+        <div class="label">Przedział wieku</div>
         <ChipPicker v-model="ageRange" :options="AGE_RANGES" :labels="ageLabel" label="Przedział wieku" />
       </div>
       <div class="field">

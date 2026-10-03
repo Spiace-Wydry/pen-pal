@@ -30,13 +30,13 @@ async function submit() {
     <ScreenTop :back="edit ? '/profil' : '/profil/o-mnie'">
       <template v-if="!edit" #center><StepProgress :step="3" /></template>
     </ScreenTop>
-    <main class="body">
-      <div>
+    <main class="body" style="gap: 16px">
+      <div style="display: flex; flex-direction: column; gap: 8px">
         <h1 class="h1">Co lubisz?</h1>
         <p class="p">Wybierz od 3 do 8 zainteresowań. Po nich znajdziemy Ci korespondenta.</p>
       </div>
       <ChipPicker v-model="interests" :options="INTERESTS" multiple :max="8" label="Zainteresowania" />
-      <p class="muted" aria-live="polite">Wybrano {{ interests.length }} z 8</p>
+      <p class="muted" style="font-weight: 700" aria-live="polite">Wybrano {{ interests.length }} z 8</p>
       <div class="divider" />
       <div class="field">
         <div class="label">W jakich językach chcesz pisać?</div>
