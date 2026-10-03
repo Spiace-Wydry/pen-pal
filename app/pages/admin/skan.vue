@@ -34,7 +34,7 @@ async function submit() {
 
 <template>
   <form class="page" @submit.prevent="submit">
-    <ScreenTop title="Skan w PiszuPoincie" subtitle="Narzędzie demo" />
+    <ScreenTop title="Skan w PiszuPunkcie" subtitle="Narzędzie demo" />
     <main class="body">
       <div class="field">
         <label class="label" for="code">Kod obsługi</label>

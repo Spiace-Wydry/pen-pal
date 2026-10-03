@@ -21,7 +21,7 @@ const directions = computed(() => p.value ? `https://www.google.com/maps/dir/?ap
     <ScreenTop back="/mapa" />
     <main v-if="p" class="body" style="gap: 18px">
       <div style="display: flex; flex-direction: column; gap: 10px">
-        <span class="tag" style="align-self: flex-start; background: #1F2A44; color: #FFFDF8; font-weight: 700">{{ p.type === 'PALPOINT' ? 'PiszuPoint' : 'PiszuBox' }}</span>
+        <span class="tag" style="align-self: flex-start; background: #1F2A44; color: #FFFDF8; font-weight: 700">{{ p.type === 'PALPOINT' ? 'PiszuPunkt' : 'PiszuBox' }}</span>
         <h1 class="h1" style="font-size: 30px">{{ p.name }}</h1>
         <p class="p">{{ p.address }} · {{ dist }}</p>
       </div>

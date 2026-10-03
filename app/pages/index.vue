@@ -26,7 +26,7 @@ definePageMeta({ layout: 'plain' })
     <div class="foot">
       <AppButton variant="stamp" to="/jak-to-dziala">Załóż konto</AppButton>
       <AppButton variant="outline" to="/logowanie">Mam już konto</AppButton>
-      <p class="muted" style="text-align: center; padding-top: 4px">Nie masz smartfona? Konto założysz też w PiszuPoincie.</p>
+      <p class="muted" style="text-align: center; padding-top: 4px">Nie masz smartfona? Konto założysz też w PiszuPunkcie.</p>
     </div>
   </div>
 </template>

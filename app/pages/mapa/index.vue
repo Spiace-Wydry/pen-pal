@@ -23,7 +23,7 @@ const visible = computed(() => points.value
   .sort((a, b) => a.dist - b.dist))
 const shown = computed(() => visible.value.find(p => p.id === selectedId.value) ?? visible.value[0])
 
-const typeLabel = (t: PointView['type']) => t === 'PALPOINT' ? 'PiszuPoint' : 'PiszuBox'
+const typeLabel = (t: PointView['type']) => t === 'PALPOINT' ? 'PiszuPunkt' : 'PiszuBox'
 const statusText = (p: PointView) => {
   if (p.type === 'PALBOX') return p.pickupNote ?? ''
   const close = closesAt(p.hours)
@@ -95,8 +95,7 @@ function locate() {
 
     <div style="position: absolute; left: 12px; right: 12px; bottom: 12px; background: #FFFDF8; border-radius: 18px; padding: 16px; box-shadow: 0 4px 16px rgba(31,42,68,0.16); display: flex; flex-direction: column; gap: 12px; z-index: 500">
       <div class="row" style="gap: 16px; font-size: 14px; flex-wrap: wrap">
-        <span class="row" style="gap: 6px"><span style="width: 14px; height: 14px; border-radius: 7px; background: #1F2A44" />PiszuPoint · wyślij i odbierz</span>
-        <span class="row" style="gap: 6px"><span style="width: 14px; height: 14px; border-radius: 3px; background: #A8432A" />PiszuBox · wyślij</span>
+        <span class="row" style="gap: 6px"><span style="width: 14px; height: 14px; border-radius: 7px; background: #1F2A44" />PiszuPunkt · wyślij i odbierz</span>
       </div>
       <div class="divider" />
       <NuxtLink v-if="shown" :to="`/mapa/${shown.id}`" class="row" style="text-decoration: none; color: #1F2A44; min-height: 48px">

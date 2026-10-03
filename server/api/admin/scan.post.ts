@@ -1,4 +1,4 @@
-// Demo helper: simulates a PiszuPoint scanning a paper letter. The PiszuKod routes the letter;
+// Demo helper: simulates a PiszuPunkt scanning a paper letter. The PiszuKod routes the letter;
 // the sender's first name is the cross-check (SPEC "How matching works at scan time").
 export default defineEventHandler(async (event) => {
   const form = await readLetterForm(event)

@@ -63,7 +63,7 @@ Accessibility is a feature (seniors): body text ≥ 17–18px, touch targets ≥
 | 16 | StatusListu | `/listy/:letterId/status` | `pages/listy/[letterId]/status.vue` | delivery timeline |
 | 17 | DodajZdjecie | `/korespondenci/:id/zdjecie` | `pages/korespondenci/[id]/zdjecie.vue` | photo upload of handwritten letter |
 | 18 | Mapa | `/mapa` | `pages/mapa/index.vue` | Leaflet map, filters, bottom sheet |
-| 19 | Punkt | `/mapa/:pointId` | `pages/mapa/[pointId].vue` | PiszuPoint / PiszuBox details |
+| 19 | Punkt | `/mapa/:pointId` | `pages/mapa/[pointId].vue` | PiszuPunkt / PiszuBox details |
 | 20 | Ustawienia | `/profil` | `pages/profil/index.vue` | profile, Premium, notifications |
 | 21 | Zglos | `/korespondenci/:id/zglos` | `pages/korespondenci/[id]/zglos.vue` | report / block a pen pal |
 
@@ -97,11 +97,11 @@ Postgres tables in Supabase (snake_case in SQL, camelCase in TS types). Auth use
 
 - Seed: Kuba (18–25, APP) paired with Halina (60–75, PAPER, PiszuKod `PP-7K3D`) and Tadeusz (75+, PAPER, `PP-4MWR`); a pending invite; candidates Krystyna etc.; ~6 Kraków points (fictional names, real coordinates).
 - Demo fast-forward: `POST /api/demo/fast-forward` shifts the signed-in user's letters 2 days back (no button in the UI).
-- An admin page `/admin/skan` to simulate a PiszuPoint scan: pick a PiszuKod, upload a photo, it lands in the right pairing.
+- An admin page `/admin/skan` to simulate a PiszuPunkt scan: pick a PiszuKod, upload a photo, it lands in the right pairing.
 
 ## Out of scope for MVP
 
-Real postal integration, OCR, QR envelopes, PiszuPoint staff panel, ID verification, payments for Premium (show the screen only), printed envelope designs.
+Real postal integration, OCR, QR envelopes, PiszuPunkt staff panel, ID verification, payments for Premium (show the screen only), printed envelope designs.
 
 ## Definition of done
 
