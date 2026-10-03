@@ -18,7 +18,7 @@ const pct = computed(() => last.value ? Math.round(100 * last.value.steps.filter
       <div class="avatar" aria-hidden="true">{{ initial(p.partner.name) }}</div>
       <div style="flex: 1; min-width: 0">
         <div class="h2" style="font-size: 20px">{{ p.partner.name }}</div>
-        <div class="muted">PalKod {{ p.palKod }} · {{ channelLabel(p.partner.channel) }}</div>
+        <div class="muted">PiszuKod {{ p.palKod }} · {{ channelLabel(p.partner.channel) }}</div>
       </div>
       <AppIcon name="chevron" :stroke-width="2.2" style="color: #5E667A" />
     </div>

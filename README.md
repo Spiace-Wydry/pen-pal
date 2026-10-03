@@ -30,7 +30,7 @@ All seeded accounts use the password `pisanielistow` (local demo data only).
 - `kuba@penpal.test` — Kuba with pen pals Halina and Tadeusz.
 - 40 more users: `<name>.s01…s20@penpal.test` (seniors), `<name>.m01…m20@penpal.test` (young).
 
-Demo helpers: **Profil → "Przewiń czas o 2 dni"** delivers letters immediately; **`/admin/skan`** (code from `NUXT_ADMIN_CODE`) simulates a PalPoint scan; **`/dev/login`** signs in as seeded users (dev builds only).
+Demo helpers: **Profil → "Przewiń czas o 2 dni"** delivers letters immediately; **`/admin/skan`** (code from `NUXT_ADMIN_CODE`) simulates a PiszuPoint scan; **`/dev/login`** signs in as seeded users (dev builds only).
 
 ## Scripts
 

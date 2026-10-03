@@ -34,14 +34,14 @@ async function submit() {
 
 <template>
   <form class="page" @submit.prevent="submit">
-    <ScreenTop title="Skan w PalPoincie" subtitle="Narzędzie demo" />
+    <ScreenTop title="Skan w PiszuPoincie" subtitle="Narzędzie demo" />
     <main class="body">
       <div class="field">
         <label class="label" for="code">Kod obsługi</label>
         <input id="code" v-model="code" class="input" type="password" autocomplete="off" placeholder="Kod obsługi" required>
       </div>
       <div class="field">
-        <label class="label" for="kod">PalKod z koperty</label>
+        <label class="label" for="kod">PiszuKod z koperty</label>
         <input id="kod" v-model="palKod" class="input" type="text" placeholder="PP-7K3D" autocapitalize="characters" required>
       </div>
       <div class="field">

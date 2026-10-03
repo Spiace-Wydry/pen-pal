@@ -28,7 +28,7 @@ const paper = computed(() => p.value?.partner.channel === 'PAPER')
         </p>
       </div>
       <div class="card" style="display: flex; flex-direction: column; gap: 8px; text-align: center; border: 1.5px dashed #A8432A">
-        <div class="muted">Wasz PalKod</div>
+        <div class="muted">Wasz PiszuKod</div>
         <div style="font-family: 'Fraunces', Georgia, serif; font-weight: 700; font-size: 34px; letter-spacing: 0.08em">{{ p.palKod }}</div>
         <p v-if="paper" class="muted">{{ p.partner.name }} wpisuje go na kopercie zamiast adresu. Dzięki niemu list trafi do Ciebie.</p>
       </div>

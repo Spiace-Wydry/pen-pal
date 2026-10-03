@@ -23,7 +23,7 @@ export const matchScore = (me: MatchInput, other: MatchInput) =>
 
 const PALKOD_ALPHABET = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789' // no 0/O/1/I
 export const PALKOD_RE = /^PP-[A-HJ-NP-Z2-9]{4}$/
-export function generatePalKod(): string {
+export function generatePiszuKod(): string {
   const bytes = crypto.getRandomValues(new Uint8Array(4))
   return 'PP-' + Array.from(bytes, b => PALKOD_ALPHABET[b % PALKOD_ALPHABET.length]).join('')
 }

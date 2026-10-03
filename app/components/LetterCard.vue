@@ -8,7 +8,7 @@ const fresh = computed(() => !l.value.mine && !l.value.readAt)
 const title = computed(() => l.value.mine ? 'Twój list' : `List od ${decline(props.partnerName, 'gen')}`)
 const sub = computed(() => l.value.mine
   ? `${formatDate(l.value.sentAt)} · ${!l.value.delivered ? 'w drodze' : l.value.deliveryChannel === 'PAPER' ? 'dostarczony pocztą' : 'dostarczony w aplikacji'}`
-  : `${formatDate(l.value.deliverAt)} · ${l.value.readAt ? 'przeczytany' : l.value.kind === 'SCAN' ? 'zeskanowany w PalPoincie' : 'napisany w aplikacji'}`)
+  : `${formatDate(l.value.deliverAt)} · ${l.value.readAt ? 'przeczytany' : l.value.kind === 'SCAN' ? 'zeskanowany w PiszuPoincie' : 'napisany w aplikacji'}`)
 const style = computed(() => `display: flex; gap: 14px; align-items: center${l.value.mine ? '; margin-left: 32px; background: #EFE4CF; border-color: #E3D8C3' : fresh.value ? '; border: 2px solid #A8432A' : ''}`)
 </script>
 

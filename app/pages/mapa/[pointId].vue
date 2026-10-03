@@ -11,7 +11,7 @@ const services = computed(() => !p.value ? [] : [
   p.value.canSend && 'Nadasz list do korespondenta',
   p.value.canCollect && 'Odbierzesz wydrukowany list',
   p.value.type === 'PALPOINT' && 'Pomożemy założyć konto',
-  p.value.type === 'PALPOINT' && 'Weźmiesz koperty z PalKodem',
+  p.value.type === 'PALPOINT' && 'Weźmiesz koperty z PiszuKodem',
 ].filter((s): s is string => !!s))
 const directions = computed(() => p.value ? `https://www.google.com/maps/dir/?api=1&destination=${p.value.lat},${p.value.lng}` : '')
 </script>
@@ -21,7 +21,7 @@ const directions = computed(() => p.value ? `https://www.google.com/maps/dir/?ap
     <ScreenTop back="/mapa" />
     <main v-if="p" class="body" style="gap: 18px">
       <div style="display: flex; flex-direction: column; gap: 10px">
-        <span class="tag" style="align-self: flex-start; background: #1F2A44; color: #FFFDF8; font-weight: 700">{{ p.type === 'PALPOINT' ? 'PalPoint' : 'PalBox' }}</span>
+        <span class="tag" style="align-self: flex-start; background: #1F2A44; color: #FFFDF8; font-weight: 700">{{ p.type === 'PALPOINT' ? 'PiszuPoint' : 'PiszuBox' }}</span>
         <h1 class="h1" style="font-size: 30px">{{ p.name }}</h1>
         <p class="p">{{ p.address }} · {{ dist }}</p>
       </div>

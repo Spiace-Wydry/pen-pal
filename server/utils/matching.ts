@@ -1,6 +1,6 @@
 import type { H3Event } from 'h3'
 import type { MatchView } from '#shared/types/api'
-import { generatePalKod, isOtherGeneration, matchScore, pairLimit, sharedInterests, sharesLanguage } from '#shared/utils/rules'
+import { generatePiszuKod, isOtherGeneration, matchScore, pairLimit, sharedInterests, sharesLanguage } from '#shared/utils/rules'
 
 export async function activeCount(event: H3Event, userId: string): Promise<number> {
   const { count } = await db(event).from('pairings').select('id', { count: 'exact', head: true })
@@ -46,10 +46,10 @@ export async function findMatches(event: H3Event, me: string): Promise<(MatchVie
 export async function createPairing(event: H3Event, inviterId: string, inviteeId: string, status: 'ACTIVE' | 'INVITED'): Promise<string> {
   for (let attempt = 0; attempt < 5; attempt++) {
     const { data, error } = await db(event).from('pairings')
-      .insert({ user_a_id: inviterId, user_b_id: inviteeId, pal_kod: generatePalKod(), status })
+      .insert({ user_a_id: inviterId, user_b_id: inviteeId, pal_kod: generatePiszuKod(), status })
       .select('id').single()
     if (data) return data.id
-    // 23505 = unique violation: retry only if the PalKod clashed, not the pair itself
+    // 23505 = unique violation: retry only if the PiszuKod clashed, not the pair itself
     if (error?.code !== '23505' || !error.message.includes('pal_kod')) break
   }
   throw fail(409, 'Ta osoba nie jest już dostępna.') // (new copy)

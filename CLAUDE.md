@@ -13,7 +13,7 @@ The MVP is built. The original handoff (product spec, HTML design mockups, imple
   - **Auth**: email + password. No OAuth.
   - **Storage**: bucket `letters` for scans / photos (private, signed URLs).
   - SQL migrations in `supabase/migrations/`, demo data in `supabase/seed.sql`.
-- **Server logic** in Nuxt server routes (`server/api/`) using the Supabase service client for anything privileged: matching, PalKod generation, sending letters, delivery status, PDF generation, the demo fast-forward. The client never computes delivery or sees private fields.
+- **Server logic** in Nuxt server routes (`server/api/`) using the Supabase service client for anything privileged: matching, PiszuKod generation, sending letters, delivery status, PDF generation, the demo fast-forward. The client never computes delivery or sees private fields.
 - **Map:** Leaflet + OpenStreetMap via `@nuxtjs/leaflet`, centred on Kraków.
 - **PDF (paper letter):** generated server-side (e.g. `pdf-lib`), served from a server route.
 - **Styling:** design tokens and component classes in `app/assets/css/penpal.css` (ported from the original design), app overrides and tokens in `app/assets/css/main.css`. Fonts via `@nuxt/fonts` or Google Fonts: Fraunces (headings), Atkinson Hyperlegible (body), Caveat (handwriting sample only).
@@ -54,7 +54,7 @@ Accessibility is a feature (seniors): body text ≥ 17–18px, touch targets ≥
 | 7 | Szukamy | `/szukamy` | `pages/szukamy.vue` | waiting state |
 | 8 | Propozycje | `/propozycje` | `pages/propozycje.vue` | top 3 matches |
 | 9 | Zaproszenie | `/zaproszenia/:id` | `pages/zaproszenia/[id].vue` | accept / decline |
-| 10 | NowyKorespondent | `/korespondenci/:id/nowy` | `pages/korespondenci/[id]/nowy.vue` | shows PalKod |
+| 10 | NowyKorespondent | `/korespondenci/:id/nowy` | `pages/korespondenci/[id]/nowy.vue` | shows PiszuKod |
 | 11 | Home | `/listy` | `pages/listy/index.vue` | pen-pal cards, empty slot, bottom nav |
 | 12 | Korespondencja | `/korespondenci/:id` | `pages/korespondenci/[id]/index.vue` | letter timeline |
 | 13 | CzytanieListu | `/listy/:letterId` | `pages/listy/[letterId]/index.vue` | scan view with zoom / text |
@@ -63,7 +63,7 @@ Accessibility is a feature (seniors): body text ≥ 17–18px, touch targets ≥
 | 16 | StatusListu | `/listy/:letterId/status` | `pages/listy/[letterId]/status.vue` | delivery timeline |
 | 17 | DodajZdjecie | `/korespondenci/:id/zdjecie` | `pages/korespondenci/[id]/zdjecie.vue` | photo upload of handwritten letter |
 | 18 | Mapa | `/mapa` | `pages/mapa/index.vue` | Leaflet map, filters, bottom sheet |
-| 19 | Punkt | `/mapa/:pointId` | `pages/mapa/[pointId].vue` | PalPoint / PalBox details |
+| 19 | Punkt | `/mapa/:pointId` | `pages/mapa/[pointId].vue` | PiszuPoint / PiszuBox details |
 | 20 | Ustawienia | `/profil` | `pages/profil/index.vue` | profile, Premium, notifications |
 | 21 | Zglos | `/korespondenci/:id/zglos` | `pages/korespondenci/[id]/zglos.vue` | report / block a pen pal |
 
@@ -87,21 +87,21 @@ Postgres tables in Supabase (snake_case in SQL, camelCase in TS types). Auth use
 2. **Age:** 18+ only; block sign-up without the checkbox.
 3. **Pen-pal limit:** max 3 ACTIVE pairings per user, Premium 5. When full, show "Masz już {limit} korespondentów. Zakończ jedną znajomość, aby poznać kogoś nowego."
 4. **Matching:** candidates from another generation (age ranges at least two steps apart on 18–25 / 26–40 / 41–60 / 60–75 / 75+), share ≥ 1 letter language, under their limit, not previously paired or blocked. Score = 2 × shared interests + 1 same region + 1 same channel. Show top 3.
-5. **PalKod:** generated per pairing; 4 chars from an alphabet without confusable characters (no 0/O/1/I), prefix `PP-`.
+5. **PiszuKod:** generated per pairing; 4 chars from an alphabet without confusable characters (no 0/O/1/I), prefix `PP-`.
 6. **Slow mail:** every letter, app→app included, has `deliverAt = sentAt + 2 days`. Recipients cannot see it before then. Status shows "Twój list jest w drodze".
 7. **One letter at a time:** you can write to a pen pal only after receiving their latest letter (or for the first letter).
-8. **Delivery channel:** the RECIPIENT's channel preference decides delivery, not the sender. The server sets `deliveryChannel` from the recipient's `channel` when the letter is sent (PAPER → printed and posted, APP → delivered in the app); the sender has no choice on the Wyślij screen. Paper letters get a printable PDF with the PiszuPiszu reply footer (`Odpowiadając, napisz na kopercie: Do: <imię>, PalKod: <kod>`). Sender shown as PiszuPiszu, never a home address.
+8. **Delivery channel:** the RECIPIENT's channel preference decides delivery, not the sender. The server sets `deliveryChannel` from the recipient's `channel` when the letter is sent (PAPER → printed and posted, APP → delivered in the app); the sender has no choice on the Wyślij screen. Paper letters get a printable PDF with the PiszuPiszu reply footer (`Odpowiadając, napisz na kopercie: Do: <imię>, PiszuKod: <kod>`). Sender shown as PiszuPiszu, never a home address.
 9. **Scan simulation:** "Dodaj zdjęcie listu" uploads 1+ page photos; stored as a `SCAN` letter and shown to the recipient as the scan.
 
 ## Demo helpers (hackathon only)
 
-- Seed: Kuba (18–25, APP) paired with Halina (60–75, PAPER, PalKod `PP-7K3D`) and Tadeusz (75+, PAPER, `PP-4MWR`); a pending invite; candidates Krystyna etc.; ~6 Kraków points (fictional names, real coordinates).
+- Seed: Kuba (18–25, APP) paired with Halina (60–75, PAPER, PiszuKod `PP-7K3D`) and Tadeusz (75+, PAPER, `PP-4MWR`); a pending invite; candidates Krystyna etc.; ~6 Kraków points (fictional names, real coordinates).
 - A hidden **"Przewiń czas o 2 dni"** (fast-forward) button in Profil so judges can see delivery without waiting.
-- An admin page `/admin/skan` to simulate a PalPoint scan: pick a PalKod, upload a photo, it lands in the right pairing.
+- An admin page `/admin/skan` to simulate a PiszuPoint scan: pick a PiszuKod, upload a photo, it lands in the right pairing.
 
 ## Out of scope for MVP
 
-Real postal integration, OCR, QR envelopes, PalPoint staff panel, ID verification, payments for Premium (show the screen only), printed envelope designs.
+Real postal integration, OCR, QR envelopes, PiszuPoint staff panel, ID verification, payments for Premium (show the screen only), printed envelope designs.
 
 ## Definition of done
 

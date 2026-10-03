@@ -259,13 +259,13 @@ insert into public.points (type, name, address, lat, lng, hours, can_send, can_c
   ('PALPOINT', 'Dom Kultury „Dębniki”', 'ul. Kulturalna 21, Kraków', 50.0478, 19.9187,
    '[null,["12:00","20:00"],["12:00","20:00"],["12:00","20:00"],["12:00","20:00"],["12:00","20:00"],null]',
    true, true, 'Listy skanujemy codziennie o 19:00.', '+48120000004'),
-  ('PALBOX', 'PalBox Rynek Podgórski', 'Rynek Podgórski, Kraków', 50.0443, 19.9495,
+  ('PALBOX', 'PiszuBox Rynek Podgórski', 'Rynek Podgórski, Kraków', 50.0443, 19.9495,
    '[["00:00","24:00"],["00:00","24:00"],["00:00","24:00"],["00:00","24:00"],["00:00","24:00"],["00:00","24:00"],["00:00","24:00"]]',
    true, false, 'Opróżniamy codziennie o 15:00.', null),
-  ('PALBOX', 'PalBox Kazimierz', 'pl. Nowy, Kraków', 50.0515, 19.9447,
+  ('PALBOX', 'PiszuBox Kazimierz', 'pl. Nowy, Kraków', 50.0515, 19.9447,
    '[["00:00","24:00"],["00:00","24:00"],["00:00","24:00"],["00:00","24:00"],["00:00","24:00"],["00:00","24:00"],["00:00","24:00"]]',
    true, false, 'Opróżniamy codziennie o 16:00.', null),
-  ('PALBOX', 'PalBox Nowa Huta', 'os. Centrum A, Kraków', 50.0717, 20.0377,
+  ('PALBOX', 'PiszuBox Nowa Huta', 'os. Centrum A, Kraków', 50.0717, 20.0377,
    '[["00:00","24:00"],["00:00","24:00"],["00:00","24:00"],["00:00","24:00"],["00:00","24:00"],["00:00","24:00"],["00:00","24:00"]]',
    true, false, 'Opróżniamy codziennie o 14:00.', null);
 

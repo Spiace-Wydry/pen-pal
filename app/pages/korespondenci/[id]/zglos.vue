@@ -68,7 +68,7 @@ async function block() {
         </div>
       </template>
 
-      <InfoNote v-if="confirmBlock" icon="info" alert>Na pewno? Nie dostaniesz już listów od {{ decline(p.partner.name, 'gen') }}, a Wasz PalKod przestanie działać.</InfoNote>
+      <InfoNote v-if="confirmBlock" icon="info" alert>Na pewno? Nie dostaniesz już listów od {{ decline(p.partner.name, 'gen') }}, a Wasz PiszuKod przestanie działać.</InfoNote>
       <p v-if="error" class="error" role="alert">{{ error }}</p>
     </main>
     <div class="foot">

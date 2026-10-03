@@ -37,7 +37,7 @@ async function submit() {
       <RadioCard v-model="channel" name="channel" value="PAPER">
         <div style="display: flex; flex-direction: column; gap: 4px">
           <div class="h2" style="font-size: 20px">List papierowy</div>
-          <p class="muted">Piszesz ręcznie i zanosisz list do PalPointu lub PalBoxa.</p>
+          <p class="muted">Piszesz ręcznie i zanosisz list do PiszuPointu lub PiszuBoxa.</p>
         </div>
       </RadioCard>
       <RadioCard v-model="channel" name="channel" value="APP">

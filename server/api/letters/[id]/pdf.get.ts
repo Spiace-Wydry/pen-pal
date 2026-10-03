@@ -38,7 +38,7 @@ export default defineEventHandler(async (event) => {
   doc.registerFontkit(fontkit)
   const fontBytes = await useStorage('assets:server').getItemRaw('fonts/AtkinsonHyperlegible-Regular.ttf')
   const font = await doc.embedFont(fontBytes as Uint8Array, { subset: true })
-  const footer = `Odpowiadając, napisz na kopercie: Do: ${senderName}, PalKod: ${p.pal_kod}`
+  const footer = `Odpowiadając, napisz na kopercie: Do: ${senderName}, PiszuKod: ${p.pal_kod}`
 
   const newPage = (): PDFPage => {
     const page = doc.addPage(A4)

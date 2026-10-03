@@ -14,7 +14,7 @@ if (p.value && p.value.status !== 'ACTIVE' && p.value.status !== 'INVITED') awai
 
 <template>
   <div v-if="p" class="page">
-    <ScreenTop back="/listy" :title="p.partner.name" :subtitle="`PalKod ${p.palKod} · ${channelLabel(p.partner.channel)}`">
+    <ScreenTop back="/listy" :title="p.partner.name" :subtitle="`PiszuKod ${p.palKod} · ${channelLabel(p.partner.channel)}`">
       <template #lead><div class="avatar" aria-hidden="true" style="width: 44px; height: 44px; font-size: 18px">{{ initial(p.partner.name) }}</div></template>
       <NuxtLink class="back" :to="`/korespondenci/${id}/zglos`" aria-label="Zgłoś korespondenta" title="Zgłoś korespondenta">
         <AppIcon name="alert" style="color: #8C3520" />
