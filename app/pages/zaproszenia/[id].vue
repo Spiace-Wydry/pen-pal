@@ -32,7 +32,7 @@ async function act(action: 'accept' | 'decline') {
     <main v-if="p" class="body" style="gap: 20px">
       <h1 class="h1">{{ p.partner.name }} chce z Tobą korespondować</h1>
       <div class="paper" style="display: flex; flex-direction: column; gap: 14px; position: relative">
-        <div class="postmark" aria-hidden="true" style="position: absolute; right: 12px; top: -20px; width: 72px; height: 72px; font-size: 10px; background: #FFFDF8">PENPAL<br>ZAPROSZENIE</div>
+        <div class="postmark" aria-hidden="true" style="position: absolute; right: 12px; top: -20px; width: 72px; height: 72px; font-size: 7.5px; letter-spacing: 0.03em; line-height: 1.3; background: #FFFDF8">PENPAL<br>ZAPROSZENIE</div>
         <div class="row">
           <div class="avatar" aria-hidden="true" style="background: #D9E0D0">{{ initial(p.partner.name) }}</div>
           <div>
