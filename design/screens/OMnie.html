@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<title>PenPal — O mnie</title>
+
+<link rel="stylesheet" href="../penpal.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&amp;family=Fraunces:opsz,wght@9..144,600;9..144,700&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#1F2A44}a:hover{color:#A8432A}
+</style>
+</helmet>
+<div class="scr">
+  <div class="top">
+    <a class="back" href="Rejestracja.html" aria-label="Wstecz"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"></path></svg></a>
+    <div style="flex: 1; display: flex; flex-direction: column; gap: 6px">
+      <div class="muted">Krok 2 z 4</div>
+      <div class="progress"><div class="progress-bar" style="width: 50%"></div></div>
+    </div>
+  </div>
+  <div class="body" style="gap: 16px">
+    <h1 class="h1">Opowiedz nam o sobie</h1>
+    <div class="field">
+      <label class="label" for="name">Imię</label>
+      <input class="input" id="name" type="text" value="Kuba">
+    </div>
+    <div class="field">
+      <div class="label">Przedział wieku</div>
+      <div class="chips">
+        <button class="chip chip-on">18–25</button>
+        <button class="chip">26–40</button>
+        <button class="chip">41–60</button>
+        <button class="chip">60–75</button>
+        <button class="chip">75+</button>
+      </div>
+    </div>
+    <div class="field">
+      <label class="label" for="city">Miasto</label>
+      <input class="input" id="city" type="text" value="Kraków">
+    </div>
+    <div class="field">
+      <label class="label" for="addr">Adres pocztowy</label>
+      <input class="input" id="addr" type="text" value="ul. Długa 5/3, 31-147 Kraków">
+    </div>
+    <div class="note"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1F2A44" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex: none; margin-top: 1px"><rect x="4" y="11" width="16" height="10" rx="2"></rect><path d="M8 11V7a4 4 0 0 1 8 0v4"></path></svg><span>Miasto i adres widzi <b>tylko PenPal</b> — używamy ich do dostarczania listów i dopasowania w regionie.</span></div>
+  </div>
+  <div class="foot">
+    <a class="btn" href="Zainteresowania.html">Dalej</a>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

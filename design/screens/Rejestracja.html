@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<title>PenPal — Rejestracja</title>
+
+<link rel="stylesheet" href="../penpal.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&amp;family=Fraunces:opsz,wght@9..144,600;9..144,700&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#1F2A44}a:hover{color:#A8432A}
+</style>
+</helmet>
+<div class="scr">
+  <div class="top">
+    <a class="back" href="JakToDziala.html" aria-label="Wstecz"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"></path></svg></a>
+    <div style="flex: 1; display: flex; flex-direction: column; gap: 6px">
+      <div class="muted">Krok 1 z 4</div>
+      <div class="progress"><div class="progress-bar" style="width: 25%"></div></div>
+    </div>
+  </div>
+  <div class="body">
+    <h1 class="h1">Załóż konto</h1>
+    <div class="field">
+      <label class="label" for="email">E-mail lub numer telefonu</label>
+      <input class="input" id="email" type="text" value="kuba.nowak@poczta.pl">
+    </div>
+    <div class="field">
+      <label class="label" for="pass">Hasło</label>
+      <input class="input" id="pass" type="password" value="pisanielistow">
+      <p class="muted">Co najmniej 8 znaków.</p>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 14px; padding-top: 4px">
+      <label style="display: flex; gap: 12px; align-items: flex-start; font-size: 17px; line-height: 1.4"><input type="checkbox" checked style="width: 26px; height: 26px; accent-color: #1F2A44; flex: none; margin: 0">Mam ukończone 18 lat</label>
+      <label style="display: flex; gap: 12px; align-items: flex-start; font-size: 17px; line-height: 1.4"><input type="checkbox" checked style="width: 26px; height: 26px; accent-color: #1F2A44; flex: none; margin: 0">Akceptuję regulamin i zgadzam się na przetwarzanie moich danych (RODO)</label>
+      <label style="display: flex; gap: 12px; align-items: flex-start; font-size: 17px; line-height: 1.4"><input type="checkbox" checked style="width: 26px; height: 26px; accent-color: #1F2A44; flex: none; margin: 0">Zgadzam się na przechowywanie skanów moich listów</label>
+    </div>
+    <div class="note"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1F2A44" stroke-width="2" stroke-linecap="round" style="flex: none; margin-top: 1px"><circle cx="12" cy="12" r="9"></circle><path d="M12 11v5M12 8h.01"></path></svg>Zakładasz konto dla mamy lub taty? Możesz zrobić to w ich imieniu.</div>
+  </div>
+  <div class="foot">
+    <a class="btn" href="OMnie.html">Dalej</a>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

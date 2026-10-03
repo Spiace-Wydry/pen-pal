@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<title>PenPal — Status listu</title>
+
+<link rel="stylesheet" href="../penpal.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&amp;family=Fraunces:opsz,wght@9..144,600;9..144,700&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#1F2A44}a:hover{color:#A8432A}
+</style>
+</helmet>
+<div class="scr">
+  <div class="top">
+    <a class="back" href="Home.html" aria-label="Zamknij"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"></path></svg></a>
+    <div class="top-title">Status listu</div>
+  </div>
+  <div class="body" style="gap: 24px">
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 16px; text-align: center; padding-top: 8px">
+      <div class="postmark" style="width: 104px; height: 104px; font-size: 12px">W DRODZE<br>DO HALINY</div>
+      <h1 class="h1">Twój list jest w drodze</h1>
+      <p class="p">Halina dostanie go w poniedziałek, 5 października.</p>
+    </div>
+    <div class="card" style="display: flex; flex-direction: column; gap: 0; padding: 20px">
+      <div style="display: flex; gap: 14px">
+        <div style="display: flex; flex-direction: column; align-items: center"><div style="width: 26px; height: 26px; border-radius: 13px; background: #1F2A44; display: flex; align-items: center; justify-content: center"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FFFDF8" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"></path></svg></div><div style="width: 2px; height: 36px; background: #1F2A44"></div></div>
+        <div><div style="font-weight: 700; font-size: 17px">Wysłany</div><div class="muted">Sobota, 3 paź, 16:20</div></div>
+      </div>
+      <div style="display: flex; gap: 14px">
+        <div style="display: flex; flex-direction: column; align-items: center"><div style="width: 26px; height: 26px; border-radius: 13px; border: 3px solid #A8432A; background: #FFFDF8"></div><div style="width: 2px; height: 36px; background: #D9CDB5"></div></div>
+        <div><div style="font-weight: 700; font-size: 17px; color: #8C3520">Wydrukowany</div><div class="muted">W poniedziałek rano</div></div>
+      </div>
+      <div style="display: flex; gap: 14px">
+        <div style="display: flex; flex-direction: column; align-items: center"><div style="width: 26px; height: 26px; border-radius: 13px; border: 2px solid #CDBF9F"></div><div style="width: 2px; height: 36px; background: #D9CDB5"></div></div>
+        <div><div style="font-size: 17px">Nadany na poczcie</div></div>
+      </div>
+      <div style="display: flex; gap: 14px">
+        <div style="display: flex; flex-direction: column; align-items: center"><div style="width: 26px; height: 26px; border-radius: 13px; border: 2px solid #CDBF9F"></div></div>
+        <div><div style="font-size: 17px">Dostarczony</div><div class="muted">Poniedziałek, 5 paź</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="foot">
+    <a class="btn" href="Home.html">Wróć do moich listów</a>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

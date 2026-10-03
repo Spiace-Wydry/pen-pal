@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<title>PenPal — Napisz list</title>
+
+<link rel="stylesheet" href="../penpal.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&amp;family=Fraunces:opsz,wght@9..144,600;9..144,700&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#1F2A44}a:hover{color:#A8432A}
+</style>
+</helmet>
+<div class="scr">
+  <div class="top">
+    <a class="back" href="Korespondencja.html" aria-label="Wstecz"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"></path></svg></a>
+    <div style="flex: 1">
+      <div class="top-title">Napisz list</div>
+      <div class="muted" style="font-size: 14px">Do: Halina</div>
+    </div>
+    <span class="muted" style="font-size: 14px">Zapisano</span>
+  </div>
+  <div class="body" style="gap: 14px; padding-top: 8px">
+    <div class="note" style="align-items: center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1F2A44" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex: none"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-4 10.5c.7.7 1 1.5 1 2.5h6c0-1 .3-1.8 1-2.5A6 6 0 0 0 12 3z"></path></svg><span>Pomysł na temat: <b>jak wyglądał Tyniec w 1968?</b></span></div>
+    <label for="letter" class="label" style="position: absolute; left: -9999px">Treść listu</label>
+    <textarea id="letter" class="paper" style="flex: 1; resize: none; font-family: 'Fraunces', Georgia, serif; font-size: 19px; line-height: 32px; color: #1F2A44; border-radius: 6px; padding: 18px 20px; outline: none">Droga Halino,
+
+„Lalkę” czytałem w liceum, ale tylko raz — chyba muszę wrócić! Teraz czytam reportaże o dawnym Krakowie.
+
+Opowiesz mi więcej o tym rejsie pod Tyniec?</textarea>
+    <div class="row" style="justify-content: space-between">
+      <span class="muted">48 słów</span>
+      <span class="muted">Dotrze za 2 dni</span>
+    </div>
+  </div>
+  <div class="foot" style="padding-top: 0">
+    <a class="btn" href="Wyslij.html">Dalej</a>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>
