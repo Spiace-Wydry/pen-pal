@@ -1,21 +1,44 @@
-# PenPal — handoff for Claude Code
+# PenPal
 
-This folder is everything Claude Code needs to build the PenPal hackathon MVP.
+**Łączymy pokolenia, list po liście.** PenPal connects older people who write paper letters with young people who write in an app. PenPal sits in the middle: it scans paper letters for app readers and prints app letters for paper readers. Hackathon MVP, pilot city Kraków.
 
-- `CLAUDE.md` — implementation brief: stack, routes, data model, business rules, demo helpers. Claude Code reads this automatically.
-- `docs/SPEC.md` — full product concept (exported from the PenPal concept doc).
-- `design/screens/` — 21 approved screens as HTML; open `Powitanie.html` in a browser and click through.
-- `design/previews/` — PNG of each screen.
-- `design/penpal.css` — design tokens and components.
+Nuxt 4 + Supabase (local, Docker). UI copy is Polish. Business rules and architecture: [`CLAUDE.md`](CLAUDE.md).
 
-## How to start
+## Run locally
 
-1. Put this folder at the root of a new Git repository (or unzip it into an empty project folder).
-2. Open that folder in Claude Code.
-3. Paste this prompt:
+Prerequisites: Node.js LTS and Docker running.
 
-> Read CLAUDE.md, docs/SPEC.md and the screens in design/. Then plan the build of the PenPal MVP in Nuxt + Supabase as described, show me the plan, and once I approve, implement it screen by screen, starting with the Supabase schema, seed data and the onboarding flow. Keep all UI copy in Polish exactly as in the designs.
+```bash
+npm install
+npm run db:start            # local Supabase in Docker
+cp .env.example .env        # fill in from: npx supabase status -o env (API_URL, ANON_KEY, SERVICE_ROLE_KEY)
+npm run db:reset            # migrations + demo seed
+npm run dev                 # http://localhost:3000
+```
 
-Before that, install Docker Desktop and make sure it's running. Supabase runs locally in Docker; Claude Code will set it up with the Supabase CLI. After `npm run db:start`, copy the URL and keys from `npx supabase status` into `.env`.
+On a phone in the same Wi-Fi: start with your LAN IP so the phone can reach Supabase:
 
-Tip: build in slices (onboarding → matching → letters → map → account) and test each on a phone-sized browser before moving on.
+```bash
+SUPABASE_URL=http://<lan-ip>:54421 npx nuxi dev --host 0.0.0.0
+```
+
+## Demo accounts
+
+All seeded accounts use the password `pisanielistow` (local demo data only).
+
+- `prezentacja@penpal.test` — Marta, ready for a presentation: unread letter, letter in transit, pending invite, free slot.
+- `kuba@penpal.test` — Kuba with pen pals Halina and Tadeusz.
+- 40 more users: `<name>.s01…s20@penpal.test` (seniors), `<name>.m01…m20@penpal.test` (young).
+
+Demo helpers: **Profil → "Przewiń czas o 2 dni"** delivers letters immediately; **`/admin/skan`** (code from `NUXT_ADMIN_CODE`) simulates a PalPoint scan; **`/dev/login`** signs in as seeded users (dev builds only).
+
+## Scripts
+
+| Script | What it does |
+|---|---|
+| `npm run dev` | Nuxt dev server |
+| `npm run build` | Production build |
+| `npm run db:start` / `db:stop` | Start / stop local Supabase |
+| `npm run db:reset` | Re-run migrations and `supabase/seed.sql` |
+| `npm run db:types` | Regenerate `types/database.ts` |
+| `npx pwa-assets-generator` | Regenerate app icons from `public/logo.svg` |

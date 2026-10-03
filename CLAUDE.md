@@ -2,15 +2,11 @@
 
 PenPal connects older people who write paper letters with young people who write in an app. PenPal sits in the middle: it scans paper letters for app readers and prints app letters for paper readers. Hackathon MVP, pilot city Kraków. **All UI copy is Polish, informal "Ty" form.**
 
-Read before coding:
-- `docs/SPEC.md` — full product concept and every decision made so far (source of truth for rules).
-- `design/screens/*.html` — the 21 approved screens, open in a browser at 390×844. Match them closely: layout, copy, colours, type.
-- `design/previews/*.png` — the same screens as images.
-- `design/penpal.css` — design tokens and component classes used by the screens.
+The MVP is built. The original handoff (product spec, HTML design mockups, implementation plans) was removed after the build; the business rules below and the app itself are now the reference. Keep new screens consistent with the existing pages and `app/assets/css/penpal.css`.
 
 ## Stack (decided by the team — the team works in Vue)
 
-- **Layout (Nuxt 4):** client code lives in `app/` (`app/pages`, `app/components`, …), API in `server/api`, pure shared rules in `shared/`. Page paths in the table below are relative to `app/`. Server env key is `SUPABASE_SECRET_KEY` (not `SUPABASE_SERVICE_KEY`). Plans: `docs/superpowers/plans/`.
+- **Layout (Nuxt 4):** client code lives in `app/` (`app/pages`, `app/components`, …), API in `server/api`, pure shared rules in `shared/`. Page paths in the table below are relative to `app/`. Server env key is `SUPABASE_SECRET_KEY` (not `SUPABASE_SERVICE_KEY`).
 - **Nuxt (latest stable) + TypeScript, Vue 3 Composition API (`<script setup lang="ts">`)**. Mobile-first web app, installable as a PWA via `@vite-pwa/nuxt`. Demo on phones from a public URL.
 - **Supabase** via `@nuxtjs/supabase`:
   - **Postgres** for all data, with Row Level Security (users read only their own rows and their active pairings; never another user's `city` / `postal_address`).
@@ -20,7 +16,7 @@ Read before coding:
 - **Server logic** in Nuxt server routes (`server/api/`) using the Supabase service client for anything privileged: matching, PalKod generation, sending letters, delivery status, PDF generation, the demo fast-forward. The client never computes delivery or sees private fields.
 - **Map:** Leaflet + OpenStreetMap via `@nuxtjs/leaflet`, centred on Kraków.
 - **PDF (paper letter):** generated server-side (e.g. `pdf-lib`), served from a server route.
-- **Styling:** port `design/penpal.css` into `assets/css/` as CSS variables + component classes (or a Tailwind theme via `@nuxtjs/tailwindcss` if the team prefers). Fonts via `@nuxt/fonts` or Google Fonts: Fraunces (headings), Atkinson Hyperlegible (body), Caveat (handwriting sample only).
+- **Styling:** design tokens and component classes in `app/assets/css/penpal.css` (ported from the original design), app overrides and tokens in `app/assets/css/main.css`. Fonts via `@nuxt/fonts` or Google Fonts: Fraunces (headings), Atkinson Hyperlegible (body), Caveat (handwriting sample only).
 - **State:** `useState` / composables (`composables/usePenPals.ts`, `useLetters.ts`…); add Pinia only if needed.
 - **Supabase runs locally in Docker** via the Supabase CLI (decided by the team). No cloud project during development.
   - Add the CLI as a dev dependency (`supabase` npm package) and commit the `supabase/` folder (`config.toml`, `migrations/`, `seed.sql`).
@@ -31,7 +27,7 @@ Read before coding:
 - **Testing on phones:** run `nuxt dev --host`; set `SUPABASE_URL` to the laptop's LAN IP (e.g. `http://192.168.x.x:54321`), not `localhost`, or phones on the same Wi-Fi can't reach the database. For a public demo link, expose the laptop with a tunnel (e.g. cloudflared) or push the same migrations to a cloud Supabase project later (`supabase link` + `supabase db push`) — no code changes needed.
 - Prerequisites: Node.js LTS and Docker Desktop running. `npm run db:start && npm run dev` starts everything.
 
-## Design system (from `design/penpal.css`)
+## Design system (`app/assets/css/penpal.css`)
 
 | Token | Value | Use |
 | --- | --- | --- |
@@ -47,7 +43,7 @@ Accessibility is a feature (seniors): body text ≥ 17–18px, touch targets ≥
 
 ## Screens → routes
 
-| # | Screen file | Route | Nuxt page file | Notes |
+| # | Screen | Route | Nuxt page file | Notes |
 | --- | --- | --- | --- | --- |
 | 1 | Powitanie | `/` | `pages/index.vue` | Welcome |
 | 2 | JakToDziala | `/jak-to-dziala` | `pages/jak-to-dziala.vue` | 3 explainer cards |
@@ -85,11 +81,11 @@ Postgres tables in Supabase (snake_case in SQL, camelCase in TS types). Auth use
 - **Point**: id, type (`PALPOINT|PALBOX`), name, address, lat, lng, hours (json), canSend, canCollect.
 - **Report**: id, pairingId, reporterId, reason, details, createdAt.
 
-## Business rules (from SPEC.md — do not change)
+## Business rules (do not change)
 
 1. **Privacy:** never expose another user's city or postal address to pen pals. Profile cards show name, age range, channel, interests, bio only.
 2. **Age:** 18+ only; block sign-up without the checkbox.
-3. **Pen-pal limit:** max 3 ACTIVE pairings per user, Premium 5. Show the limit copy from SPEC when full.
+3. **Pen-pal limit:** max 3 ACTIVE pairings per user, Premium 5. When full, show "Masz już {limit} korespondentów. Zakończ jedną znajomość, aby poznać kogoś nowego."
 4. **Matching:** candidates from the other generation (60+ ↔ 18–30 as the default split), share ≥ 1 letter language, under their limit, not previously paired or blocked. Score = 2 × shared interests + 1 same region + 1 same channel. Show top 3.
 5. **PalKod:** generated per pairing; 4 chars from an alphabet without confusable characters (no 0/O/1/I), prefix `PP-`.
 6. **Slow mail:** every letter, app→app included, has `deliverAt = sentAt + 2 days`. Recipients cannot see it before then. Status shows "Twój list jest w drodze".
@@ -109,4 +105,4 @@ Real postal integration, OCR, QR envelopes, PalPoint staff panel, ID verificatio
 
 ## Definition of done
 
-The full journey works on a phone in Polish: sign up → profile → matches → invite/accept → write → choose paper → status (fast-forward) → read a scanned letter → reply → map → point details → report/block. Screens visually match `design/`.
+The full journey works on a phone in Polish: sign up → profile → matches → invite/accept → write → choose paper → status (fast-forward) → read a scanned letter → reply → map → point details → report/block. Screens stay visually consistent with the existing design system.
