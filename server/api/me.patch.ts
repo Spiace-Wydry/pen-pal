@@ -8,12 +8,13 @@ const listOf = (list: readonly string[], v: unknown) =>
 
 export default defineEventHandler(async (event) => {
   const me = await requireUserId(event)
-  const b = await readBody<MePatch>(event)
+  const b = (await readBody<MePatch>(event)) ?? {}
+  const str = (v: unknown) => String(v ?? '').trim()
   const pub: TablesUpdate<'profiles'> = {}
   const priv: TablesUpdate<'private_profiles'> = {}
 
   if (b.name !== undefined) {
-    const name = String(b.name).trim()
+    const name = str(b.name)
     if (!name || name.length > 40) throw fail(400, 'Podaj imię (do 40 znaków).')
     pub.name = name
   }
@@ -26,7 +27,7 @@ export default defineEventHandler(async (event) => {
     pub.channel = b.channel!
   }
   if (b.bio !== undefined) {
-    const bio = String(b.bio).trim()
+    const bio = str(b.bio)
     if (bio.length > 300) throw fail(400, 'Opis może mieć najwyżej 300 znaków.')
     pub.bio = bio
   }
@@ -41,8 +42,8 @@ export default defineEventHandler(async (event) => {
   }
   if (b.notifyNewLetter !== undefined) pub.notify_new_letter = Boolean(b.notifyNewLetter)
   if (b.notifyDelivered !== undefined) pub.notify_delivered = Boolean(b.notifyDelivered)
-  if (b.city !== undefined) priv.city = String(b.city).trim().slice(0, 80) || null
-  if (b.postalAddress !== undefined) priv.postal_address = String(b.postalAddress).trim().slice(0, 200) || null
+  if (b.city !== undefined) priv.city = str(b.city).slice(0, 80) || null
+  if (b.postalAddress !== undefined) priv.postal_address = str(b.postalAddress).slice(0, 200) || null
 
   const client = db(event)
   if (Object.keys(pub).length) {
