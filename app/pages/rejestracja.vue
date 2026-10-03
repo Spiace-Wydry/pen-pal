@@ -13,7 +13,7 @@ const busy = ref(false)
 
 async function submit() {
   error.value = ''
-  if (!adult.value) { error.value = 'PenPal jest tylko dla osób pełnoletnich.'; return }
+  if (!adult.value) { error.value = 'PiszuPiszu jest tylko dla osób pełnoletnich.'; return }
   if (!rodo.value) { error.value = 'Zaakceptuj regulamin, aby założyć konto.'; return }
   busy.value = true
   const { data, error: e } = await supabase.auth.signUp({ email: email.value.trim(), password: password.value })

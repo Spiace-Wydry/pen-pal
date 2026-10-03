@@ -11,7 +11,7 @@ const cards = [
   <div class="page">
     <ScreenTop back="/" />
     <main class="body" style="gap: 22px">
-      <h1 class="h1">Jak działa PenPal?</h1>
+      <h1 class="h1">Jak działa PiszuPiszu?</h1>
       <div v-for="c in cards" :key="c.title" class="card" style="display: flex; gap: 16px; align-items: flex-start; padding: 20px">
         <div class="avatar" style="background: #E7D7B8; color: #1F2A44"><AppIcon :name="c.icon" :size="28" /></div>
         <div style="display: flex; flex-direction: column; gap: 6px">

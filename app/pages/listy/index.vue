@@ -45,7 +45,7 @@ const ORDINAL = ['pierwszego', 'drugiego', 'trzeciego', 'czwartego', 'piątego']
         </div>
       </NuxtLink>
 
-      <p v-if="!profile?.isPremium" class="muted" style="text-align: center">Chcesz pisać z większą liczbą osób? <NuxtLink to="/profil" style="font-weight: 700">PenPal Premium</NuxtLink></p>
+      <p v-if="!profile?.isPremium" class="muted" style="text-align: center">Chcesz pisać z większą liczbą osób? <NuxtLink to="/profil" style="font-weight: 700">PiszuPiszu Premium</NuxtLink></p>
     </main>
   </div>
 </template>

@@ -77,7 +77,7 @@ async function fastForward() {
         <div class="row" style="justify-content: space-between">
           <div>
             <div class="label">Adres pocztowy</div>
-            <div class="muted">Ukryty · widzi go tylko PenPal</div>
+            <div class="muted">Ukryty · widzi go tylko PiszuPiszu</div>
           </div>
           <NuxtLink to="/profil/o-mnie?edit=1" style="font-weight: 700; min-height: 48px; display: inline-flex; align-items: center">Zmień</NuxtLink>
         </div>
@@ -85,7 +85,7 @@ async function fastForward() {
 
       <section class="card" style="display: flex; flex-direction: column; gap: 10px; background: #1F2A44; border-color: #1F2A44; color: #FBF7EE">
         <div class="row" style="justify-content: space-between">
-          <h2 class="h2" style="color: #FBF7EE">PenPal Premium</h2>
+          <h2 class="h2" style="color: #FBF7EE">PiszuPiszu Premium</h2>
           <div class="postmark" aria-hidden="true" style="width: 52px; height: 52px; font-size: 8px; color: #F0B8A6; border-color: #F0B8A6">PREMIUM</div>
         </div>
         <p style="margin: 0; font-size: 16px; line-height: 1.45; color: #E4DED2">Pisz z większą liczbą osób — do 5 korespondentów zamiast 3.</p>

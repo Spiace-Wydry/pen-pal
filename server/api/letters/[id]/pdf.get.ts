@@ -42,9 +42,9 @@ export default defineEventHandler(async (event) => {
 
   const newPage = (): PDFPage => {
     const page = doc.addPage(A4)
-    page.drawText('PenPal', { x: M, y: A4[1] - M, size: 22, font, color: STAMP })
-    // Sender is always PenPal, never a home address.
-    page.drawText(`Nadawca: PenPal · Do: ${recipientName}`, { x: M, y: A4[1] - M - 20, size: 11, font, color: INK })
+    page.drawText('PiszuPiszu', { x: M, y: A4[1] - M, size: 22, font, color: STAMP })
+    // Sender is always PiszuPiszu, never a home address.
+    page.drawText(`Nadawca: PiszuPiszu · Do: ${recipientName}`, { x: M, y: A4[1] - M - 20, size: 11, font, color: INK })
     page.drawLine({ start: { x: M, y: M + 26 }, end: { x: A4[0] - M, y: M + 26 }, thickness: 0.5, color: INK })
     page.drawText(footer, { x: M, y: M + 8, size: 12, font, color: INK })
     return page

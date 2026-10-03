@@ -50,7 +50,7 @@ async function submit() {
         <label class="label" for="addr">Adres pocztowy</label>
         <input id="addr" v-model="address" class="input" type="text" autocomplete="street-address" placeholder="np. ul. Długa 5/3, 31-147 Kraków" maxlength="200">
       </div>
-      <InfoNote icon="lock">Miasto i adres widzi <b>tylko PenPal</b> — używamy ich do dostarczania listów i dopasowania w regionie.</InfoNote>
+      <InfoNote icon="lock">Miasto i adres widzi <b>tylko PiszuPiszu</b> — używamy ich do dostarczania listów i dopasowania w regionie.</InfoNote>
       <p v-if="error" class="error" role="alert">{{ error }}</p>
     </main>
     <div class="foot">

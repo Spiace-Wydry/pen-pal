@@ -1,6 +1,6 @@
-# PenPal
+# PiszuPiszu
 
-**Łączymy pokolenia, list po liście.** PenPal connects older people who write paper letters with young people who write in an app. PenPal sits in the middle: it scans paper letters for app readers and prints app letters for paper readers. Hackathon MVP, pilot city Kraków.
+**Łączymy pokolenia, list po liście.** PiszuPiszu connects older people who write paper letters with young people who write in an app. PiszuPiszu sits in the middle: it scans paper letters for app readers and prints app letters for paper readers. Hackathon MVP, pilot city Kraków.
 
 Nuxt 4 + Supabase (local, Docker). UI copy is Polish. Business rules and architecture: [`CLAUDE.md`](CLAUDE.md).
 

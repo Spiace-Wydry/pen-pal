@@ -51,7 +51,7 @@ async function block() {
       </div>
       <div class="note" style="background: #F3E2DA">
         <AppIcon name="alert" :size="22" style="color: #8C3520" />
-        <span>Nigdy nie podawaj danych do konta ani nie wysyłaj pieniędzy. PenPal nigdy o to nie prosi.</span>
+        <span>Nigdy nie podawaj danych do konta ani nie wysyłaj pieniędzy. PiszuPiszu nigdy o to nie prosi.</span>
       </div>
 
       <InfoNote v-if="sent" icon="check">Dziękujemy. Sprawdzimy zgłoszenie i odezwiemy się w aplikacji.</InfoNote>

@@ -47,8 +47,8 @@ async function send() {
             {{ paper ? `${p.partner.name} dostanie go na papierze` : `${p.partner.name} przeczyta go w aplikacji` }}
           </div>
           <!-- Profiles have no gender, so "wybrała/wybrał" is rephrased neutrally ("woli listy papierowe"). -->
-          <p v-if="paper" class="muted">{{ p.partner.name }} woli listy papierowe. Wydrukujemy Twój list i wyślemy go pocztą. Nadawcą na kopercie będzie PenPal — Twój adres pozostaje ukryty.</p>
-          <p v-else class="muted">{{ p.partner.name }} czyta listy w aplikacji PenPal.</p>
+          <p v-if="paper" class="muted">{{ p.partner.name }} woli listy papierowe. Wydrukujemy Twój list i wyślemy go pocztą. Nadawcą na kopercie będzie PiszuPiszu — Twój adres pozostaje ukryty.</p>
+          <p v-else class="muted">{{ p.partner.name }} czyta listy w aplikacji PiszuPiszu.</p>
         </div>
       </div>
       <InfoNote icon="info">To odbiorca decyduje, jak dostaje listy: na papierze czy w aplikacji.</InfoNote>

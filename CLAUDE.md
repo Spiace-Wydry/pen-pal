@@ -1,6 +1,6 @@
-# PenPal — implementation brief
+# PiszuPiszu — implementation brief
 
-PenPal connects older people who write paper letters with young people who write in an app. PenPal sits in the middle: it scans paper letters for app readers and prints app letters for paper readers. Hackathon MVP, pilot city Kraków. **All UI copy is Polish, informal "Ty" form.**
+PiszuPiszu connects older people who write paper letters with young people who write in an app. PiszuPiszu sits in the middle: it scans paper letters for app readers and prints app letters for paper readers. Hackathon MVP, pilot city Kraków. **All UI copy is Polish, informal "Ty" form.**
 
 The MVP is built. The original handoff (product spec, HTML design mockups, implementation plans) was removed after the build; the business rules below and the app itself are now the reference. Keep new screens consistent with the existing pages and `app/assets/css/penpal.css`.
 
@@ -90,7 +90,7 @@ Postgres tables in Supabase (snake_case in SQL, camelCase in TS types). Auth use
 5. **PalKod:** generated per pairing; 4 chars from an alphabet without confusable characters (no 0/O/1/I), prefix `PP-`.
 6. **Slow mail:** every letter, app→app included, has `deliverAt = sentAt + 2 days`. Recipients cannot see it before then. Status shows "Twój list jest w drodze".
 7. **One letter at a time:** you can write to a pen pal only after receiving their latest letter (or for the first letter).
-8. **Delivery channel:** the RECIPIENT's channel preference decides delivery, not the sender. The server sets `deliveryChannel` from the recipient's `channel` when the letter is sent (PAPER → printed and posted, APP → delivered in the app); the sender has no choice on the Wyślij screen. Paper letters get a printable PDF with the PenPal reply footer (`Odpowiadając, napisz na kopercie: Do: <imię>, PalKod: <kod>`). Sender shown as PenPal, never a home address.
+8. **Delivery channel:** the RECIPIENT's channel preference decides delivery, not the sender. The server sets `deliveryChannel` from the recipient's `channel` when the letter is sent (PAPER → printed and posted, APP → delivered in the app); the sender has no choice on the Wyślij screen. Paper letters get a printable PDF with the PiszuPiszu reply footer (`Odpowiadając, napisz na kopercie: Do: <imię>, PalKod: <kod>`). Sender shown as PiszuPiszu, never a home address.
 9. **Scan simulation:** "Dodaj zdjęcie listu" uploads 1+ page photos; stored as a `SCAN` letter and shown to the recipient as the scan.
 
 ## Demo helpers (hackathon only)

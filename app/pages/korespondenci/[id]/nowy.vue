@@ -17,7 +17,7 @@ const paper = computed(() => p.value?.partner.channel === 'PAPER')
     <main class="body" style="gap: 22px; padding: 56px 20px 0">
       <div style="display: flex; align-items: center; justify-content: center; gap: 0" aria-hidden="true">
         <div class="avatar" style="width: 88px; height: 88px; border-radius: 44px; font-size: 34px; border: 4px solid #F6F0E4">{{ initial(profile?.name ?? '') }}</div>
-        <div class="postmark" style="width: 64px; height: 64px; font-size: 9px; margin: 0 -10px; background: #F6F0E4; z-index: 1">PENPAL</div>
+        <div class="postmark" style="width: 64px; height: 64px; font-size: 7px; letter-spacing: 0.02em; margin: 0 -10px; background: #F6F0E4; z-index: 1">PISZUPISZU</div>
         <div class="avatar" style="width: 88px; height: 88px; border-radius: 44px; font-size: 34px; border: 4px solid #F6F0E4">{{ initial(p.partner.name) }}</div>
       </div>
       <div style="display: flex; flex-direction: column; gap: 10px; text-align: center">

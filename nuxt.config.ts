@@ -7,7 +7,7 @@ export default defineNuxtConfig({
   app: {
     head: {
       htmlAttrs: { lang: 'pl' },
-      title: 'PenPal',
+      title: 'PiszuPiszu',
       meta: [
         { name: 'viewport', content: 'width=device-width, initial-scale=1, viewport-fit=cover' },
         { name: 'theme-color', content: '#F6F0E4' },
@@ -41,8 +41,8 @@ export default defineNuxtConfig({
   pwa: {
     registerType: 'autoUpdate',
     manifest: {
-      name: 'PenPal',
-      short_name: 'PenPal',
+      name: 'PiszuPiszu',
+      short_name: 'PiszuPiszu',
       description: 'Łączymy pokolenia, list po liście.',
       lang: 'pl',
       start_url: '/',

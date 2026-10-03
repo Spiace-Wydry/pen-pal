@@ -17,8 +17,8 @@ definePageMeta({ layout: 'plain' })
       </div>
       <div style="display: flex; flex-direction: column; align-items: center; gap: 14px; text-align: center">
         <div class="row" style="gap: 14px; justify-content: center">
-          <img src="/logo.svg" alt="" width="52" height="52" style="flex: none">
-          <h1 style="font-family: 'Fraunces', Georgia, serif; font-weight: 700; font-size: 52px; letter-spacing: -0.02em; line-height: 1; margin: 0">PenPal</h1>
+          <img src="/logo.svg" alt="" width="44" height="44" style="flex: none">
+          <h1 style="font-family: 'Fraunces', Georgia, serif; font-weight: 700; font-size: 44px; letter-spacing: -0.02em; line-height: 1; margin: 0">PiszuPiszu</h1>
         </div>
         <p class="p" style="font-size: 20px; max-width: 300px">Łączymy pokolenia, list po liście.</p>
       </div>
