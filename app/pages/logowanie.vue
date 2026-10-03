@@ -27,11 +27,11 @@ async function submit() {
       <h1 class="h1">Zaloguj się</h1>
       <div class="field">
         <label class="label" for="email">E-mail</label>
-        <input id="email" v-model="email" class="input" type="email" autocomplete="email" required>
+        <input id="email" v-model="email" class="input" type="email" autocomplete="email" placeholder="np. jan.kowalski@poczta.pl" required>
       </div>
       <div class="field">
         <label class="label" for="pass">Hasło</label>
-        <input id="pass" v-model="password" class="input" type="password" autocomplete="current-password" required>
+        <input id="pass" v-model="password" class="input" type="password" autocomplete="current-password" placeholder="Twoje hasło" required>
       </div>
       <p v-if="error" class="error" role="alert">{{ error }}</p>
     </main>

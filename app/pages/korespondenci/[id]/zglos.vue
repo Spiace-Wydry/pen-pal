@@ -64,7 +64,7 @@ async function block() {
         </fieldset>
         <div class="field">
           <label class="label" for="det">Opisz krótko (opcjonalnie)</label>
-          <textarea id="det" v-model="details" class="input" maxlength="1000" style="min-height: 64px; padding: 12px 14px; resize: none" />
+          <textarea id="det" v-model="details" class="input" maxlength="1000" placeholder="Co się wydarzyło?" style="min-height: 64px; padding: 12px 14px; resize: none" />
         </div>
       </template>
 

@@ -40,11 +40,11 @@ async function submit() {
       <h1 class="h1">Załóż konto</h1>
       <div class="field">
         <label class="label" for="email">E-mail</label>
-        <input id="email" v-model="email" class="input" type="email" autocomplete="email" required>
+        <input id="email" v-model="email" class="input" type="email" autocomplete="email" placeholder="np. jan.kowalski@poczta.pl" required>
       </div>
       <div class="field">
         <label class="label" for="pass">Hasło</label>
-        <input id="pass" v-model="password" class="input" type="password" autocomplete="new-password" minlength="8" required aria-describedby="pass-hint">
+        <input id="pass" v-model="password" class="input" type="password" autocomplete="new-password" placeholder="Wymyśl hasło" minlength="8" required aria-describedby="pass-hint">
         <p id="pass-hint" class="muted">Co najmniej 8 znaków.</p>
       </div>
       <div style="display: flex; flex-direction: column; gap: 14px; padding-top: 4px">

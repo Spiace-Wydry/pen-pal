@@ -19,3 +19,4 @@ a:hover { color: var(--stamp); }
 .error { color: #8C3520; font-size: 16px; margin: 0; }
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
 :focus-visible, .radio:has(input:focus-visible) { outline: 3px solid var(--stamp); outline-offset: 2px; }
+::placeholder { color: var(--muted); opacity: 1; } /* #5E667A on #FFFDF8 ≈ 5.8:1 */

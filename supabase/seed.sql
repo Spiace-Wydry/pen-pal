@@ -52,6 +52,169 @@ select public._seed_user('00000000-0000-0000-0000-000000000206', 'barbara@penpal
   'Robię na drutach i oglądam stare filmy.',
   '{Rękodzieło,Przyroda,Film}');
 
+
+-- Presentation users: 20 seniors (…0300–0319) and 20 young people (…0400–0419), password pisanielistow
+select public._seed_user('00000000-0000-0000-0000-000000000300', 'irena.s01@penpal.test', 'Irena', '60-75', 'PAPER',
+  'Kraków', 'ul. Karmelicka 12/4, 31-128 Kraków',
+  'Byłam bibliotekarką. Najchętniej rozmawiam o książkach i kwiatach.',
+  '{Książki,Ogród,Historia}', '{polski}');
+select public._seed_user('00000000-0000-0000-0000-000000000301', 'jozef.s02@penpal.test', 'Józef', '75+', 'PAPER',
+  'Kraków', 'ul. Mogilska 40/7, 31-546 Kraków',
+  'Całe życie pracowałem na kolei. Znam każdą stację w Małopolsce.',
+  '{Podróże,Historia,Technologia}', '{polski}');
+select public._seed_user('00000000-0000-0000-0000-000000000302', 'danuta.s03@penpal.test', 'Danuta', '60-75', 'APP',
+  'Kraków', 'os. Kalinowe 3/12, 31-812 Kraków',
+  'Wnuczka nauczyła mnie smartfona. Lubię gotować i piec ciasta.',
+  '{Gotowanie,Zwierzęta,Muzyka}', '{polski,angielski}');
+select public._seed_user('00000000-0000-0000-0000-000000000303', 'henryk.s04@penpal.test', 'Henryk', '75+', 'PAPER',
+  'Wieliczka', 'ul. Słowackiego 5, 32-020 Wieliczka',
+  'Grałem w szachy w klubie przez czterdzieści lat. Szukam godnego przeciwnika listownie.',
+  '{Szachy i gry,Historia,Sport}', '{polski}');
+select public._seed_user('00000000-0000-0000-0000-000000000304', 'teresa.s05@penpal.test', 'Teresa', '60-75', 'PAPER',
+  'Kraków', 'ul. Grodzka 33/2, 31-001 Kraków',
+  'Szyję, haftuję i opowiadam o dawnym Kazimierzu.',
+  '{Rękodzieło,Historia,Film}', '{polski,niemiecki}');
+select public._seed_user('00000000-0000-0000-0000-000000000305', 'wladyslaw.s06@penpal.test', 'Władysław', '75+', 'PAPER',
+  'Kraków', 'ul. Lea 120/5, 30-133 Kraków',
+  'Uczyłem fizyki. Ciekawi mnie, jak dziś wygląda technologia.',
+  '{Technologia,Książki,Przyroda}', '{polski}');
+select public._seed_user('00000000-0000-0000-0000-000000000306', 'maria.s07@penpal.test', 'Maria', '60-75', 'APP',
+  'Kraków', 'ul. Wielicka 58/9, 30-552 Kraków',
+  'Śpiewam w chórze parafialnym i kocham stare przeboje.',
+  '{Muzyka,Gotowanie,Ogród}', '{polski}');
+select public._seed_user('00000000-0000-0000-0000-000000000307', 'zbigniew.s08@penpal.test', 'Zbigniew', '60-75', 'PAPER',
+  'Tarnów', 'ul. Krakowska 15, 33-100 Tarnów',
+  'Wędkarz i grzybiarz. Najlepiej czuję się w lesie.',
+  '{Przyroda,Sport,Zwierzęta}', '{polski}');
+select public._seed_user('00000000-0000-0000-0000-000000000308', 'elzbieta.s09@penpal.test', 'Elżbieta', '75+', 'PAPER',
+  'Kraków', 'ul. Dietla 70/3, 31-039 Kraków',
+  'Byłam aktorką teatru amatorskiego. Chętnie opowiem o kinie lat 60.',
+  '{Film,Muzyka,Książki}', '{polski,angielski}');
+select public._seed_user('00000000-0000-0000-0000-000000000309', 'ryszard.s10@penpal.test', 'Ryszard', '60-75', 'APP',
+  'Kraków', 'os. Teatralne 8/21, 31-946 Kraków',
+  'Inżynier z Nowej Huty. Majsterkuję i fotografuję zachody słońca.',
+  '{Fotografia,Technologia,Historia}', '{polski}');
+select public._seed_user('00000000-0000-0000-0000-000000000310', 'wanda.s11@penpal.test', 'Wanda', '75+', 'PAPER',
+  'Myślenice', 'ul. Rynek 9, 32-400 Myślenice',
+  'Mam ogród pełen róż i trzy koty. Lubię długie listy.',
+  '{Ogród,Zwierzęta,Rękodzieło}', '{polski}');
+select public._seed_user('00000000-0000-0000-0000-000000000311', 'kazimierz.s12@penpal.test', 'Kazimierz', '75+', 'PAPER',
+  'Kraków', 'ul. Starowiślna 22/1, 31-032 Kraków',
+  'Pamiętam Kraków sprzed tramwajów niskopodłogowych. Opowiem, jak było.',
+  '{Historia,Podróże,Fotografia}', '{polski,ukraiński}');
+select public._seed_user('00000000-0000-0000-0000-000000000312', 'jadwiga.s13@penpal.test', 'Jadwiga', '60-75', 'APP',
+  'Kraków', 'ul. Zakopiańska 105/6, 30-418 Kraków',
+  'Uczyłam angielskiego. Chętnie napiszę też po angielsku.',
+  '{Języki obce,Książki,Podróże}', '{polski,angielski}');
+select public._seed_user('00000000-0000-0000-0000-000000000313', 'tadeusz.s14@penpal.test', 'Tadeusz', '60-75', 'PAPER',
+  'Bochnia', 'ul. Kazimierza Wielkiego 4, 32-700 Bochnia',
+  'Przez lata byłem górnikiem w kopalni soli. Lubię piłkę nożną.',
+  '{Sport,Historia,Muzyka}', '{polski}');
+select public._seed_user('00000000-0000-0000-0000-000000000314', 'anna.s15@penpal.test', 'Anna', '75+', 'PAPER',
+  'Kraków', 'ul. Kalwaryjska 31/8, 30-504 Kraków',
+  'Kolekcjonuję przepisy babci. Każdy list kończę przepisem.',
+  '{Gotowanie,Rękodzieło,Ogród}', '{polski}');
+select public._seed_user('00000000-0000-0000-0000-000000000315', 'edward.s16@penpal.test', 'Edward', '75+', 'APP',
+  'Kraków', 'ul. Piastowska 47/2, 30-067 Kraków',
+  'Byłem żeglarzem. Opłynąłem Bałtyk i lubię opowiadać o morzu.',
+  '{Podróże,Przyroda,Fotografia}', '{polski,niemiecki}');
+select public._seed_user('00000000-0000-0000-0000-000000000316', 'halina.s17@penpal.test', 'Halina', '60-75', 'PAPER',
+  'Nowy Targ', 'ul. Szaflarska 18, 34-400 Nowy Targ',
+  'Góralka z dziada pradziada. Robię oscypki i kocham Tatry.',
+  '{Przyroda,Gotowanie,Muzyka}', '{polski}');
+select public._seed_user('00000000-0000-0000-0000-000000000317', 'leszek.s18@penpal.test', 'Leszek', '60-75', 'APP',
+  'Kraków', 'ul. Królewska 66/14, 30-081 Kraków',
+  'Grałem na gitarze w zespole big-beatowym. Rock and roll wciąż we mnie gra.',
+  '{Muzyka,Film,Technologia}', '{polski,angielski}');
+select public._seed_user('00000000-0000-0000-0000-000000000318', 'genowefa.s19@penpal.test', 'Genowefa', '75+', 'PAPER',
+  'Kraków', 'ul. Bronowicka 90/1, 30-091 Kraków',
+  'Wychowałam pięcioro dzieci i dziesięcioro wnucząt. Lubię słuchać młodych.',
+  '{Rękodzieło,Zwierzęta,Książki}', '{polski}');
+select public._seed_user('00000000-0000-0000-0000-000000000319', 'stefan.s20@penpal.test', 'Stefan', '75+', 'PAPER',
+  'Olkusz', 'ul. Rabsztyńska 2, 32-300 Olkusz',
+  'Emerytowany listonosz. Listy to moja pasja od zawsze.',
+  '{Historia,Szachy i gry,Przyroda}', '{polski}');
+select public._seed_user('00000000-0000-0000-0000-000000000400', 'zuzia.m01@penpal.test', 'Zuzia', '18-25', 'APP',
+  'Kraków', 'ul. Pawia 10/2, 31-154 Kraków',
+  'Studiuję polonistykę. Szukam kogoś, kto pamięta dawne czasy.',
+  '{Książki,Historia,Film}', '{polski,angielski}');
+select public._seed_user('00000000-0000-0000-0000-000000000401', 'mateusz.m02@penpal.test', 'Mateusz', '18-25', 'APP',
+  'Kraków', 'ul. Czarnowiejska 50/3, 30-054 Kraków',
+  'Student AGH. Interesuje mnie, jak kiedyś działała technika.',
+  '{Technologia,Historia,Szachy i gry}', '{polski,angielski}');
+select public._seed_user('00000000-0000-0000-0000-000000000402', 'julia.m03@penpal.test', 'Julia', '18-25', 'APP',
+  'Kraków', 'ul. Lubicz 25/7, 31-503 Kraków',
+  'Uczę się gotować i chętnie poznam stare przepisy.',
+  '{Gotowanie,Ogród,Rękodzieło}', '{polski}');
+select public._seed_user('00000000-0000-0000-0000-000000000403', 'kacper.m04@penpal.test', 'Kacper', '18-25', 'APP',
+  'Wieliczka', 'ul. Asnyka 3, 32-020 Wieliczka',
+  'Gram w piłkę i interesuję się historią sportu.',
+  '{Sport,Historia,Podróże}', '{polski}');
+select public._seed_user('00000000-0000-0000-0000-000000000404', 'natalia.m05@penpal.test', 'Natalia', '18-25', 'PAPER',
+  'Kraków', 'ul. Smolki 14/1, 30-513 Kraków',
+  'Lubię pisać listy ręcznie. Zbieram znaczki i pocztówki.',
+  '{Historia,Rękodzieło,Fotografia}', '{polski,niemiecki}');
+select public._seed_user('00000000-0000-0000-0000-000000000405', 'szymon.m06@penpal.test', 'Szymon', '18-25', 'APP',
+  'Kraków', 'os. Złotej Jesieni 7/40, 31-826 Kraków',
+  'Fotografuję Kraków nocą. Chcę zobaczyć, jak zmieniało się miasto.',
+  '{Fotografia,Historia,Podróże}', '{polski,angielski}');
+select public._seed_user('00000000-0000-0000-0000-000000000406', 'wiktoria.m07@penpal.test', 'Wiktoria', '18-25', 'APP',
+  'Tarnów', 'ul. Wałowa 12, 33-100 Tarnów',
+  'Studiuję muzykę. Ciekawi mnie, czego słuchało się dawniej.',
+  '{Muzyka,Film,Książki}', '{polski}');
+select public._seed_user('00000000-0000-0000-0000-000000000407', 'jakub.m08@penpal.test', 'Jakub', '18-25', 'APP',
+  'Kraków', 'ul. Prądnicka 80/9, 31-202 Kraków',
+  'Wolontariusz w schronisku. Kocham psy i długie spacery.',
+  '{Zwierzęta,Przyroda,Sport}', '{polski}');
+select public._seed_user('00000000-0000-0000-0000-000000000408', 'maja.m09@penpal.test', 'Maja', '18-25', 'APP',
+  'Kraków', 'ul. Krowoderska 42/5, 31-158 Kraków',
+  'Uczę się ukraińskiego i angielskiego. Lubię podróże koleją.',
+  '{Języki obce,Podróże,Książki}', '{polski,ukraiński,angielski}');
+select public._seed_user('00000000-0000-0000-0000-000000000409', 'filip.m10@penpal.test', 'Filip', '18-25', 'APP',
+  'Bochnia', 'ul. Solna 6, 32-700 Bochnia',
+  'Gram w szachy online. Chętnie zagram partię korespondencyjną.',
+  '{Szachy i gry,Technologia,Historia}', '{polski}');
+select public._seed_user('00000000-0000-0000-0000-000000000410', 'oliwia.m11@penpal.test', 'Oliwia', '18-25', 'PAPER',
+  'Kraków', 'ul. Józefińska 19/4, 30-529 Kraków',
+  'Szyję ubrania i robię na drutach. Szukam mistrzyni robótek.',
+  '{Rękodzieło,Film,Muzyka}', '{polski}');
+select public._seed_user('00000000-0000-0000-0000-000000000411', 'bartek.m12@penpal.test', 'Bartek', '18-25', 'APP',
+  'Kraków', 'ul. Bulwarowa 35/11, 31-751 Kraków',
+  'Studiuję historię Nowej Huty. Szukam świadków dawnych lat.',
+  '{Historia,Fotografia,Technologia}', '{polski,angielski}');
+select public._seed_user('00000000-0000-0000-0000-000000000412', 'lena.m13@penpal.test', 'Lena', '18-25', 'APP',
+  'Nowy Targ', 'ul. Ludźmierska 21, 34-400 Nowy Targ',
+  'Chodzę po górach co weekend. Lubię przyrodę i zwierzęta.',
+  '{Przyroda,Zwierzęta,Sport}', '{polski}');
+select public._seed_user('00000000-0000-0000-0000-000000000413', 'igor.m14@penpal.test', 'Igor', '18-25', 'APP',
+  'Kraków', 'ul. Wrocławska 64/8, 30-011 Kraków',
+  'Programista i fan starych filmów science fiction.',
+  '{Technologia,Film,Muzyka}', '{polski,angielski}');
+select public._seed_user('00000000-0000-0000-0000-000000000414', 'amelia.m15@penpal.test', 'Amelia', '18-25', 'APP',
+  'Kraków', 'ul. Mazowiecka 15/6, 30-036 Kraków',
+  'Studiuję architekturę krajobrazu. Uwielbiam ogrody.',
+  '{Ogród,Przyroda,Fotografia}', '{polski,niemiecki}');
+select public._seed_user('00000000-0000-0000-0000-000000000415', 'dawid.m16@penpal.test', 'Dawid', '18-25', 'APP',
+  'Myślenice', 'ul. Słowackiego 11, 32-400 Myślenice',
+  'Jeżdżę na rowerze i zbieram historie z okolicy.',
+  '{Sport,Historia,Przyroda}', '{polski}');
+select public._seed_user('00000000-0000-0000-0000-000000000416', 'hania.m17@penpal.test', 'Hania', '18-25', 'PAPER',
+  'Kraków', 'ul. Szlak 28/3, 31-153 Kraków',
+  'Piszę wiersze i lubię klasyczne powieści.',
+  '{Książki,Muzyka,Rękodzieło}', '{polski}');
+select public._seed_user('00000000-0000-0000-0000-000000000417', 'michal.m18@penpal.test', 'Michał', '18-25', 'APP',
+  'Olkusz', 'ul. Króla Kazimierza 7, 32-300 Olkusz',
+  'Gotuję dla całej rodziny. Chcę poznać przepisy sprzed lat.',
+  '{Gotowanie,Podróże,Języki obce}', '{polski,angielski}');
+select public._seed_user('00000000-0000-0000-0000-000000000418', 'ania.m19@penpal.test', 'Ania', '18-25', 'APP',
+  'Kraków', 'ul. Basztowa 3/12, 31-134 Kraków',
+  'Studiuję psychologię. Lubię słuchać i rozmawiać o życiu.',
+  '{Książki,Film,Podróże}', '{polski,angielski}');
+select public._seed_user('00000000-0000-0000-0000-000000000419', 'tymon.m20@penpal.test', 'Tymon', '18-25', 'APP',
+  'Kraków', 'ul. Nowosądecka 52/17, 30-383 Kraków',
+  'Kolekcjonuję winyle. Najchętniej porozmawiam o muzyce.',
+  '{Muzyka,Historia,Fotografia}', '{polski}');
+
 drop function public._seed_user;
 
 -- Pairings (user_a_id = inviter)

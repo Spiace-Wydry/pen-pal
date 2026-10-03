@@ -36,7 +36,7 @@ async function submit() {
       <h1 class="h1">Opowiedz nam o sobie</h1>
       <div class="field">
         <label class="label" for="name">Imię</label>
-        <input id="name" v-model="name" class="input" type="text" autocomplete="given-name" maxlength="40" required>
+        <input id="name" v-model="name" class="input" type="text" autocomplete="given-name" placeholder="np. Kuba" maxlength="40" required>
       </div>
       <div class="field">
         <div class="label">Przedział wieku</div>
@@ -44,11 +44,11 @@ async function submit() {
       </div>
       <div class="field">
         <label class="label" for="city">Miasto</label>
-        <input id="city" v-model="city" class="input" type="text" autocomplete="address-level2" maxlength="80">
+        <input id="city" v-model="city" class="input" type="text" autocomplete="address-level2" placeholder="np. Kraków" maxlength="80">
       </div>
       <div class="field">
         <label class="label" for="addr">Adres pocztowy</label>
-        <input id="addr" v-model="address" class="input" type="text" autocomplete="street-address" maxlength="200">
+        <input id="addr" v-model="address" class="input" type="text" autocomplete="street-address" placeholder="np. ul. Długa 5/3, 31-147 Kraków" maxlength="200">
       </div>
       <InfoNote icon="lock">Miasto i adres widzi <b>tylko PenPal</b> — używamy ich do dostarczania listów i dopasowania w regionie.</InfoNote>
       <p v-if="error" class="error" role="alert">{{ error }}</p>

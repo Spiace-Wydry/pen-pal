@@ -48,7 +48,7 @@ async function submit() {
       </RadioCard>
       <div class="field">
         <label class="label" for="bio">Krótko o mnie</label>
-        <textarea id="bio" v-model="bio" class="input" maxlength="300" style="min-height: 120px; padding: 12px 14px; line-height: 1.45; resize: none" aria-describedby="bio-count" />
+        <textarea id="bio" v-model="bio" class="input" maxlength="300" placeholder="np. Lubię stare zdjęcia Krakowa i podróże pociągiem." style="min-height: 120px; padding: 12px 14px; line-height: 1.45; resize: none" aria-describedby="bio-count" />
         <p id="bio-count" class="muted" style="text-align: right">{{ bio.length }} / 300</p>
       </div>
       <p v-if="error" class="error" role="alert">{{ error }}</p>

@@ -35,7 +35,7 @@ function next() {
       <InfoNote v-if="topic" icon="bulb">Pomysł na temat: <b>{{ topic.prompt }}</b></InfoNote>
       <label for="letter" class="label" style="position: absolute; left: -9999px">Treść listu</label>
       <textarea
-        id="letter" v-model="draft.body" class="paper" maxlength="5000"
+        id="letter" v-model="draft.body" class="paper" maxlength="5000" placeholder="Napisz tutaj swój list…"
         style="flex: 1; min-height: 380px; resize: none; font-family: 'Fraunces', Georgia, serif; font-size: 19px; line-height: 32px; color: #1F2A44; border-radius: 6px; padding: 18px 20px; outline: none"
       />
       <div class="row" style="justify-content: space-between">

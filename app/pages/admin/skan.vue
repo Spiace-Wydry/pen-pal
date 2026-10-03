@@ -38,7 +38,7 @@ async function submit() {
     <main class="body">
       <div class="field">
         <label class="label" for="code">Kod obsługi</label>
-        <input id="code" v-model="code" class="input" type="password" autocomplete="off" required>
+        <input id="code" v-model="code" class="input" type="password" autocomplete="off" placeholder="Kod obsługi" required>
       </div>
       <div class="field">
         <label class="label" for="kod">PalKod z koperty</label>
@@ -46,7 +46,7 @@ async function submit() {
       </div>
       <div class="field">
         <label class="label" for="from">Od (imię nadawcy)</label>
-        <input id="from" v-model="from" class="input" type="text" required>
+        <input id="from" v-model="from" class="input" type="text" placeholder="np. Halina" required>
       </div>
       <div class="field">
         <label class="label" for="pages">Zdjęcia stron</label>
