@@ -82,7 +82,7 @@ export interface PairingView {
 
 export interface LetterResponse { letter: LetterView, pairing: PairingView }
 
-export interface MatchView { profile: PublicProfile, sharedInterests: string[], score: number }
+export interface MatchView { profile: PublicProfile, sharedInterests: string[] }
 export interface MatchesResponse { full: boolean, limit: number, matches: MatchView[] }
 
 /** 7 entries indexed like Date.getDay() (0 = Sunday): [open, close] or null. */

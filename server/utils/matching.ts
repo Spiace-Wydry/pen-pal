@@ -9,7 +9,7 @@ export async function activeCount(event: H3Event, userId: string): Promise<numbe
 }
 
 // ponytail: loads every profile and pairing per request; fine for a city pilot, move to a SQL view/RPC past a few thousand users.
-export async function findMatches(event: H3Event, me: string): Promise<MatchView[]> {
+export async function findMatches(event: H3Event, me: string): Promise<(MatchView & { score: number })[]> {
   const client = db(event)
   const [{ data: profiles }, { data: privs }, { data: pairings }] = await Promise.all([
     client.from('profiles').select('*').not('channel', 'is', null).not('age_range', 'is', null),

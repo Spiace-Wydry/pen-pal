@@ -1,6 +1,6 @@
 export default defineEventHandler(async (event) => {
   const me = await requireUserId(event)
-  const { userId } = await readBody<{ userId?: string }>(event)
+  const { userId } = (await readBody<{ userId?: string }>(event)) ?? {}
   const { limit } = await loadMe(event, me)
   if (await activeCount(event, me) >= limit)
     throw fail(409, `Masz już ${limit} korespondentów. Zakończ jedną znajomość, aby poznać kogoś nowego.`)

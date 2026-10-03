@@ -5,7 +5,7 @@ import { topicFor } from '#shared/utils/topics'
 
 definePageMeta({ layout: 'plain' })
 const id = useRoute().params.id as string
-const { data: p } = await useFetch<PairingView>(`/api/pairings/${id}`)
+const { data: p, error } = await useFetch<PairingView>(`/api/pairings/${id}`)
 const { profile, refreshProfile } = useProfile()
 if (!profile.value) await refreshProfile()
 const topic = computed(() => p.value ? topicFor(p.value.sharedInterests) : null)
@@ -39,4 +39,5 @@ const paper = computed(() => p.value?.partner.channel === 'PAPER')
       <AppButton variant="outline" to="/listy">Przejdź do moich listów</AppButton>
     </div>
   </div>
+  <p v-else-if="error" class="error" role="alert" style="padding: 20px">{{ errorText(error) }}</p>
 </template>
