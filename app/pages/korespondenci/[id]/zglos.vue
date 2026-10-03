@@ -5,7 +5,7 @@ import { REPORT_REASONS } from '#shared/utils/reports'
 
 definePageMeta({ layout: 'plain' })
 const id = useRoute().params.id as string
-const { data: p } = await useFetch<PairingView>(`/api/pairings/${id}`)
+const { data: p, error: loadError } = await useFetch<PairingView>(`/api/pairings/${id}`)
 const reason = ref<string>(REPORT_REASONS[0])
 const details = ref('')
 const confirmBlock = ref(false)
@@ -78,4 +78,5 @@ async function block() {
       </AppButton>
     </div>
   </div>
+  <p v-else-if="loadError" class="error" role="alert" style="padding: 20px">{{ errorText(loadError) }}</p>
 </template>
