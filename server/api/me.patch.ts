@@ -42,6 +42,10 @@ export default defineEventHandler(async (event) => {
   }
   if (b.notifyNewLetter !== undefined) pub.notify_new_letter = Boolean(b.notifyNewLetter)
   if (b.notifyDelivered !== undefined) pub.notify_delivered = Boolean(b.notifyDelivered)
+  if (b.scanConsent !== undefined) {
+    pub.scan_consent = Boolean(b.scanConsent)
+    if (pub.scan_consent) pub.consented_at = new Date().toISOString()
+  }
   if (b.city !== undefined) priv.city = str(b.city).slice(0, 80) || null
   if (b.postalAddress !== undefined) priv.postal_address = str(b.postalAddress).slice(0, 200) || null
 

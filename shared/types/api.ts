@@ -26,6 +26,7 @@ export interface Me {
   isPremium: boolean
   notifyNewLetter: boolean
   notifyDelivered: boolean
+  scanConsent: boolean
   city: string | null
   postalAddress: string | null
   /** Route of the next unfinished onboarding step, or null when the profile is complete. */
@@ -45,6 +46,7 @@ export type MePatch = Partial<{
   postalAddress: string
   notifyNewLetter: boolean
   notifyDelivered: boolean
+  scanConsent: boolean
 }>
 
 export interface LetterView {

@@ -107,13 +107,13 @@ isOneToOne: true
                   ]
                 },"profiles": {
                   Row: {
-                    "age_range": Database["public"]['Enums']["age_range"] | null,"bio": string,"channel": Database["public"]['Enums']["channel"] | null,"created_at": string,"email": string,"id": string,"interests": (string)[],"is_premium": boolean,"languages": (string)[],"name": string | null,"notify_delivered": boolean,"notify_new_letter": boolean
+                    "age_range": Database["public"]['Enums']["age_range"] | null,"bio": string,"channel": Database["public"]['Enums']["channel"] | null,"consented_at": string | null,"created_at": string,"email": string,"id": string,"interests": (string)[],"is_premium": boolean,"languages": (string)[],"name": string | null,"notify_delivered": boolean,"notify_new_letter": boolean,"scan_consent": boolean
                   }
                   Insert: {
-                    "age_range"?: Database["public"]['Enums']["age_range"] | null,"bio"?: string,"channel"?: Database["public"]['Enums']["channel"] | null,"created_at"?: string,"email": string,"id": string,"interests"?: (string)[],"is_premium"?: boolean,"languages"?: (string)[],"name"?: string | null,"notify_delivered"?: boolean,"notify_new_letter"?: boolean
+                    "age_range"?: Database["public"]['Enums']["age_range"] | null,"bio"?: string,"channel"?: Database["public"]['Enums']["channel"] | null,"consented_at"?: string | null,"created_at"?: string,"email": string,"id": string,"interests"?: (string)[],"is_premium"?: boolean,"languages"?: (string)[],"name"?: string | null,"notify_delivered"?: boolean,"notify_new_letter"?: boolean,"scan_consent"?: boolean
                   }
                   Update: {
-                    "age_range"?: Database["public"]['Enums']["age_range"] | null,"bio"?: string,"channel"?: Database["public"]['Enums']["channel"] | null,"created_at"?: string,"email"?: string,"id"?: string,"interests"?: (string)[],"is_premium"?: boolean,"languages"?: (string)[],"name"?: string | null,"notify_delivered"?: boolean,"notify_new_letter"?: boolean
+                    "age_range"?: Database["public"]['Enums']["age_range"] | null,"bio"?: string,"channel"?: Database["public"]['Enums']["channel"] | null,"consented_at"?: string | null,"created_at"?: string,"email"?: string,"id"?: string,"interests"?: (string)[],"is_premium"?: boolean,"languages"?: (string)[],"name"?: string | null,"notify_delivered"?: boolean,"notify_new_letter"?: boolean,"scan_consent"?: boolean
                   }
                   Relationships: [
                     

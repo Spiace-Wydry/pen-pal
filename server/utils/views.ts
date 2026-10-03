@@ -39,6 +39,7 @@ export async function loadMe(event: H3Event, id: string): Promise<Me> {
     isPremium: p.is_premium,
     notifyNewLetter: p.notify_new_letter,
     notifyDelivered: p.notify_delivered,
+    scanConsent: p.scan_consent,
     city: priv?.city ?? null,
     postalAddress: priv?.postal_address ?? null,
     onboardingStep: onboardingStep(p),

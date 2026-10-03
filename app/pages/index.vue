@@ -22,7 +22,7 @@ definePageMeta({ layout: 'plain' })
     </main>
     <div class="foot">
       <AppButton variant="stamp" to="/jak-to-dziala">Załóż konto</AppButton>
-      <!-- /logowanie is deferred (user decision); it 404s until the login plan lands -->
+      <!-- /logowanie is deferred (user decision); add it to PUBLIC in middleware/auth.global.ts when the login page lands -->
       <AppButton variant="outline" to="/logowanie">Mam już konto</AppButton>
       <p class="muted" style="text-align: center; padding-top: 4px">Nie masz smartfona? Konto założysz też w PalPoincie.</p>
     </div>

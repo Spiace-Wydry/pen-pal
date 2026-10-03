@@ -16,7 +16,7 @@ async function submit() {
   if (!adult.value) { error.value = 'PenPal jest tylko dla osób pełnoletnich.'; return }
   if (!rodo.value) { error.value = 'Zaakceptuj regulamin, aby założyć konto.'; return }
   busy.value = true
-  const { error: e } = await supabase.auth.signUp({ email: email.value.trim(), password: password.value })
+  const { data, error: e } = await supabase.auth.signUp({ email: email.value.trim(), password: password.value })
   busy.value = false
   if (e) {
     error.value = /already/i.test(e.message)
@@ -24,6 +24,8 @@ async function submit() {
       : 'Nie udało się założyć konta. Sprawdź e-mail i hasło.'
     return
   }
+  if (!data.session) { error.value = 'Sprawdź skrzynkę e-mail, aby potwierdzić konto.'; return }
+  try { await $fetch('/api/me', { method: 'PATCH', body: { scanConsent: scans.value } }) } catch { /* never block onboarding */ }
   profile.value = null
   await navigateTo('/profil/o-mnie')
 }
