@@ -215,6 +215,13 @@ select public._seed_user('00000000-0000-0000-0000-000000000419', 'tymon.m20@penp
   'Kolekcjonuję winyle. Najchętniej porozmawiam o muzyce.',
   '{Muzyka,Historia,Fotografia}', '{polski}');
 
+
+-- Presentation account (log in as this one): prezentacja@penpal.test / pisanielistow
+select public._seed_user('00000000-0000-0000-0000-000000000500', 'prezentacja@penpal.test', 'Marta', '18-25', 'APP',
+  'Kraków', 'ul. Floriańska 20/3, 31-021 Kraków',
+  'Studiuję historię sztuki. Kocham stare biblioteki, fotografię i podróże pociągiem.',
+  '{Historia,Książki,Fotografia,Podróże}', '{polski,angielski}');
+
 drop function public._seed_user;
 
 -- Pairings (user_a_id = inviter)
@@ -261,3 +268,206 @@ insert into public.points (type, name, address, lat, lng, hours, can_send, can_c
   ('PALBOX', 'PalBox Nowa Huta', 'os. Centrum A, Kraków', 50.0717, 20.0377,
    '[["00:00","24:00"],["00:00","24:00"],["00:00","24:00"],["00:00","24:00"],["00:00","24:00"],["00:00","24:00"],["00:00","24:00"]]',
    true, false, 'Opróżniamy codziennie o 14:00.', null);
+
+-- Presentation pairings & letters (between the presentation users; Marta = prezentacja@penpal.test)
+insert into public.pairings (id, user_a_id, user_b_id, pal_kod, status, created_at) values
+  ('00000000-0000-0000-0000-00000000b100', '00000000-0000-0000-0000-000000000500', '00000000-0000-0000-0000-000000000300', 'PP-M4RT', 'ACTIVE', now() - interval '30 days'),
+  ('00000000-0000-0000-0000-00000000b101', '00000000-0000-0000-0000-000000000500', '00000000-0000-0000-0000-000000000311', 'PP-K8ZM', 'ACTIVE', now() - interval '30 days'),
+  ('00000000-0000-0000-0000-00000000b102', '00000000-0000-0000-0000-000000000315', '00000000-0000-0000-0000-000000000500', 'PP-ED5W', 'INVITED', now() - interval '30 days'),
+  ('00000000-0000-0000-0000-00000000b103', '00000000-0000-0000-0000-000000000400', '00000000-0000-0000-0000-000000000308', 'PP-ZE2L', 'ACTIVE', now() - interval '30 days'),
+  ('00000000-0000-0000-0000-00000000b104', '00000000-0000-0000-0000-000000000401', '00000000-0000-0000-0000-000000000305', 'PP-W7DM', 'ACTIVE', now() - interval '30 days'),
+  ('00000000-0000-0000-0000-00000000b105', '00000000-0000-0000-0000-000000000402', '00000000-0000-0000-0000-000000000314', 'PP-J3NA', 'ACTIVE', now() - interval '30 days'),
+  ('00000000-0000-0000-0000-00000000b106', '00000000-0000-0000-0000-000000000403', '00000000-0000-0000-0000-000000000313', 'PP-T6KR', 'ACTIVE', now() - interval '30 days'),
+  ('00000000-0000-0000-0000-00000000b107', '00000000-0000-0000-0000-000000000404', '00000000-0000-0000-0000-000000000319', 'PP-N9ST', 'ACTIVE', now() - interval '30 days'),
+  ('00000000-0000-0000-0000-00000000b108', '00000000-0000-0000-0000-000000000405', '00000000-0000-0000-0000-000000000309', 'PP-S4RY', 'ACTIVE', now() - interval '30 days'),
+  ('00000000-0000-0000-0000-00000000b109', '00000000-0000-0000-0000-000000000406', '00000000-0000-0000-0000-000000000317', 'PP-V2LS', 'ACTIVE', now() - interval '30 days'),
+  ('00000000-0000-0000-0000-00000000b10a', '00000000-0000-0000-0000-000000000407', '00000000-0000-0000-0000-000000000310', 'PP-J8WD', 'ACTIVE', now() - interval '30 days'),
+  ('00000000-0000-0000-0000-00000000b10b', '00000000-0000-0000-0000-000000000408', '00000000-0000-0000-0000-000000000312', 'PP-M3JD', 'ACTIVE', now() - interval '30 days'),
+  ('00000000-0000-0000-0000-00000000b10c', '00000000-0000-0000-0000-000000000409', '00000000-0000-0000-0000-000000000303', 'PP-F5HN', 'ACTIVE', now() - interval '30 days'),
+  ('00000000-0000-0000-0000-00000000b10d', '00000000-0000-0000-0000-000000000410', '00000000-0000-0000-0000-000000000304', 'PP-T9RS', 'ACTIVE', now() - interval '30 days'),
+  ('00000000-0000-0000-0000-00000000b10e', '00000000-0000-0000-0000-000000000411', '00000000-0000-0000-0000-000000000301', 'PP-B6JZ', 'ACTIVE', now() - interval '30 days'),
+  ('00000000-0000-0000-0000-00000000b10f', '00000000-0000-0000-0000-000000000412', '00000000-0000-0000-0000-000000000307', 'PP-L4ZB', 'ACTIVE', now() - interval '30 days'),
+  ('00000000-0000-0000-0000-00000000b110', '00000000-0000-0000-0000-000000000417', '00000000-0000-0000-0000-000000000302', 'PP-H7DN', 'ACTIVE', now() - interval '30 days'),
+  ('00000000-0000-0000-0000-00000000b111', '00000000-0000-0000-0000-000000000318', '00000000-0000-0000-0000-000000000416', 'PP-G2HN', 'INVITED', now() - interval '30 days'),
+  ('00000000-0000-0000-0000-00000000b112', '00000000-0000-0000-0000-000000000413', '00000000-0000-0000-0000-000000000306', 'PP-M9GR', 'ACTIVE', now() - interval '30 days');
+insert into public.letters (pairing_id, sender_id, kind, body, delivery_channel, sent_at, deliver_at, read_at) values
+  ('00000000-0000-0000-0000-00000000b100', '00000000-0000-0000-0000-000000000500', 'TYPED', 'Droga Ireno,
+
+nazywam się Marta i studiuję historię sztuki. Uwielbiam stare biblioteki — czy pamięta Pani, jak wyglądała biblioteka na Rajskiej, kiedy zaczynała Pani pracę?
+
+Pozdrawiam serdecznie,
+Marta', 'PAPER', now() - interval '216 hours', now() - interval '216 hours' + interval '2 days', now() - interval '216 hours' + interval '2 days 3 hours'),
+  ('00000000-0000-0000-0000-00000000b100', '00000000-0000-0000-0000-000000000300', 'TYPED', 'Droga Marto,
+
+bardzo ucieszył mnie Twój list. Na Rajską chodziłam jeszcze jako dziewczynka — katalogi były w drewnianych szufladkach, a bibliotekarki szeptały tak cicho, że trzeba było czytać z ruchu warg.
+
+A Ty jaką książkę czytasz teraz? I co rośnie na Twoim parapecie?
+
+Ściskam,
+Irena', 'APP', now() - interval '72 hours', now() - interval '72 hours' + interval '2 days', null),
+  ('00000000-0000-0000-0000-00000000b101', '00000000-0000-0000-0000-000000000500', 'TYPED', 'Drogi Kazimierzu,
+
+przesyłam pozdrowienia z Kazimierza — tego dzielnicowego, nie Pana! Czy pamięta Pan, jak wyglądał plac Nowy, zanim pojawiły się tam zapiekanki?
+
+Marta', 'PAPER', now() - interval '6 hours', now() - interval '6 hours' + interval '2 days', null),
+  ('00000000-0000-0000-0000-00000000b103', '00000000-0000-0000-0000-000000000308', 'TYPED', 'Droga Zuziu,
+
+w młodości grałam w teatrze amatorskim przy Domu Kultury. Najpiękniej było przed premierą — zapach farby i kurzu z kurtyny.
+
+Czy lubisz teatr?
+Elżbieta', 'APP', now() - interval '480 hours', now() - interval '480 hours' + interval '2 days', now() - interval '480 hours' + interval '2 days 3 hours'),
+  ('00000000-0000-0000-0000-00000000b103', '00000000-0000-0000-0000-000000000400', 'TYPED', 'Pani Elżbieto,
+
+uwielbiam! W zeszłym miesiącu byłam w Starym Teatrze na „Weselu”. Jaką rolę zagrała Pani najchętniej?
+
+Zuzia', 'PAPER', now() - interval '288 hours', now() - interval '288 hours' + interval '2 days', now() - interval '288 hours' + interval '2 days 3 hours'),
+  ('00000000-0000-0000-0000-00000000b103', '00000000-0000-0000-0000-000000000308', 'TYPED', 'Zuziu kochana,
+
+najchętniej grałam Rachelę z „Wesela” — to chyba przeznaczenie, że o nim piszesz! Opowiem Ci kiedyś o próbach, które trwały do północy.
+
+Elżbieta', 'APP', now() - interval '120 hours', now() - interval '120 hours' + interval '2 days', null),
+  ('00000000-0000-0000-0000-00000000b104', '00000000-0000-0000-0000-000000000401', 'TYPED', 'Panie Władysławie,
+
+studiuję na AGH automatykę. Ciekawi mnie, jak wyglądały lekcje fizyki w latach 70. — mieliście komputery?
+
+Mateusz', 'PAPER', now() - interval '360 hours', now() - interval '360 hours' + interval '2 days', now() - interval '360 hours' + interval '2 days 3 hours'),
+  ('00000000-0000-0000-0000-00000000b104', '00000000-0000-0000-0000-000000000305', 'TYPED', 'Drogi Mateuszu,
+
+komputer był jeden na całe miasto, a my liczyliśmy na suwaku logarytmicznym. Za to doświadczenia z elektryczności robiliśmy takie, że iskry leciały pod sufit!
+
+Władysław', 'APP', now() - interval '192 hours', now() - interval '192 hours' + interval '2 days', now() - interval '192 hours' + interval '2 days 3 hours'),
+  ('00000000-0000-0000-0000-00000000b104', '00000000-0000-0000-0000-000000000401', 'TYPED', 'Panie Władysławie,
+
+suwak logarytmiczny! Znalazłem jeden u dziadka w szufladzie. Czy mógłby Pan opisać, jak się nim liczy pierwiastki?
+
+Mateusz', 'PAPER', now() - interval '30 hours', now() - interval '30 hours' + interval '2 days', null),
+  ('00000000-0000-0000-0000-00000000b105', '00000000-0000-0000-0000-000000000402', 'TYPED', 'Pani Anno,
+
+uczę się gotować i ciągle coś przypalam. Czy ma Pani jakiś niezawodny przepis babci?
+
+Julia', 'PAPER', now() - interval '240 hours', now() - interval '240 hours' + interval '2 days', now() - interval '240 hours' + interval '2 days 3 hours'),
+  ('00000000-0000-0000-0000-00000000b105', '00000000-0000-0000-0000-000000000314', 'TYPED', 'Julciu,
+
+przesyłam przepis na racuchy z jabłkami mojej babci Stefanii: szklanka mąki, szklanka kefiru, jajko, szczypta cukru i dwa kwaśne jabłka. Smaż na małym ogniu — cierpliwość to najważniejszy składnik!
+
+Anna', 'APP', now() - interval '96 hours', now() - interval '96 hours' + interval '2 days', null),
+  ('00000000-0000-0000-0000-00000000b106', '00000000-0000-0000-0000-000000000313', 'TYPED', 'Drogi Kacprze,
+
+przez trzydzieści lat pracowałem w kopalni soli w Bochni. Wiesz, że pod ziemią grywaliśmy w piłkę w komorze Ważyn?
+
+Tadeusz', 'APP', now() - interval '168 hours', now() - interval '168 hours' + interval '2 days', null),
+  ('00000000-0000-0000-0000-00000000b107', '00000000-0000-0000-0000-000000000404', 'TYPED', 'Panie Stefanie,
+
+zbieram znaczki i pocztówki. Słyszałam, że był Pan listonoszem — to musi być piękny zawód!
+
+Natalia', 'PAPER', now() - interval '600 hours', now() - interval '600 hours' + interval '2 days', now() - interval '600 hours' + interval '2 days 3 hours'),
+  ('00000000-0000-0000-0000-00000000b107', '00000000-0000-0000-0000-000000000319', 'TYPED', 'Natalio,
+
+przez czterdzieści lat roznosiłem listy w Olkuszu. Najpiękniejsze były te z kartką urodzinową w środku — ludzie płakali ze szczęścia na progu.
+
+Stefan', 'PAPER', now() - interval '432 hours', now() - interval '432 hours' + interval '2 days', now() - interval '432 hours' + interval '2 days 3 hours'),
+  ('00000000-0000-0000-0000-00000000b107', '00000000-0000-0000-0000-000000000404', 'TYPED', 'Panie Stefanie,
+
+czy pamięta Pan jakiś szczególny list, który Pan doręczał?
+
+Natalia', 'PAPER', now() - interval '264 hours', now() - interval '264 hours' + interval '2 days', now() - interval '264 hours' + interval '2 days 3 hours'),
+  ('00000000-0000-0000-0000-00000000b107', '00000000-0000-0000-0000-000000000319', 'TYPED', 'Natalio,
+
+pamiętam list z Kanady do pani Zofii, po czterdziestu latach od brata. Doręczyłem go w Wigilię. Do dziś mam przed oczami jej twarz.
+
+Stefan', 'PAPER', now() - interval '96 hours', now() - interval '96 hours' + interval '2 days', null),
+  ('00000000-0000-0000-0000-00000000b108', '00000000-0000-0000-0000-000000000405', 'TYPED', 'Panie Ryszardzie,
+
+fotografuję Kraków nocą. Czy ma Pan zdjęcia Nowej Huty z czasów budowy?
+
+Szymon', 'APP', now() - interval '72 hours', now() - interval '72 hours' + interval '2 days', null),
+  ('00000000-0000-0000-0000-00000000b109', '00000000-0000-0000-0000-000000000317', 'TYPED', 'Wiktorio,
+
+w 1968 grałem na gitarze w zespole big-beatowym „Wiślanie”. Graliśmy na potańcówkach w Rotundzie!
+
+Leszek', 'APP', now() - interval '216 hours', now() - interval '216 hours' + interval '2 days', now() - interval '216 hours' + interval '2 days 3 hours'),
+  ('00000000-0000-0000-0000-00000000b109', '00000000-0000-0000-0000-000000000406', 'TYPED', 'Panie Leszku,
+
+to brzmi niesamowicie! Jakie piosenki graliście najczęściej? Ja studiuję wokalistykę jazzową.
+
+Wiktoria', 'APP', now() - interval '20 hours', now() - interval '20 hours' + interval '2 days', null),
+  ('00000000-0000-0000-0000-00000000b10a', '00000000-0000-0000-0000-000000000407', 'TYPED', 'Pani Wando,
+
+jestem wolontariuszem w schronisku. Słyszałem, że ma Pani trzy koty — jak się nazywają?
+
+Jakub', 'PAPER', now() - interval '336 hours', now() - interval '336 hours' + interval '2 days', now() - interval '336 hours' + interval '2 days 3 hours'),
+  ('00000000-0000-0000-0000-00000000b10a', '00000000-0000-0000-0000-000000000310', 'TYPED', 'Jakubie,
+
+moje koty to Filomena, Bonifacy i Mruczek. Bonifacy przyszedł sam z pola dziesięć lat temu i został na zawsze.
+
+Wanda', 'APP', now() - interval '144 hours', now() - interval '144 hours' + interval '2 days', null),
+  ('00000000-0000-0000-0000-00000000b10b', '00000000-0000-0000-0000-000000000408', 'TYPED', 'Pani Jadwigo,
+
+uczę się angielskiego i ukraińskiego. Can I write in English sometimes?
+
+Maja', 'APP', now() - interval '288 hours', now() - interval '288 hours' + interval '2 days', now() - interval '288 hours' + interval '2 days 3 hours'),
+  ('00000000-0000-0000-0000-00000000b10b', '00000000-0000-0000-0000-000000000312', 'TYPED', 'Dear Maja,
+
+of course! I taught English for 35 years. Let''s mix languages — that''s the best way to learn.
+
+Jadwiga', 'APP', now() - interval '168 hours', now() - interval '168 hours' + interval '2 days', now() - interval '168 hours' + interval '2 days 3 hours'),
+  ('00000000-0000-0000-0000-00000000b10b', '00000000-0000-0000-0000-000000000408', 'TYPED', 'Dear Mrs Jadwiga,
+
+thank you! Which English book should I read first?
+
+Maja', 'APP', now() - interval '30 hours', now() - interval '30 hours' + interval '2 days', null),
+  ('00000000-0000-0000-0000-00000000b10c', '00000000-0000-0000-0000-000000000409', 'TYPED', 'Panie Henryku,
+
+proponuję partię szachów listownie. Mój pierwszy ruch: e4.
+
+Filip', 'PAPER', now() - interval '384 hours', now() - interval '384 hours' + interval '2 days', now() - interval '384 hours' + interval '2 days 3 hours'),
+  ('00000000-0000-0000-0000-00000000b10c', '00000000-0000-0000-0000-000000000303', 'TYPED', 'Filipie,
+
+przyjmuję wyzwanie! Odpowiadam: c5. Obrona sycylijska — zobaczymy, co z tego wyniknie.
+
+Henryk', 'APP', now() - interval '216 hours', now() - interval '216 hours' + interval '2 days', now() - interval '216 hours' + interval '2 days 3 hours'),
+  ('00000000-0000-0000-0000-00000000b10c', '00000000-0000-0000-0000-000000000409', 'TYPED', 'Panie Henryku,
+
+Sf3! Czekam z niecierpliwością na Pana ruch.
+
+Filip', 'PAPER', now() - interval '72 hours', now() - interval '72 hours' + interval '2 days', null),
+  ('00000000-0000-0000-0000-00000000b10d', '00000000-0000-0000-0000-000000000410', 'TYPED', 'Pani Tereso,
+
+uczę się haftu krzyżykowego i ciągle plączą mi się nitki. Czy mogłaby mi Pani coś doradzić?
+
+Oliwia', 'PAPER', now() - interval '192 hours', now() - interval '192 hours' + interval '2 days', null),
+  ('00000000-0000-0000-0000-00000000b10e', '00000000-0000-0000-0000-000000000301', 'TYPED', 'Bartku,
+
+Nowa Huta to moje miasto od pierwszego bloku. Pamiętam, jak na placu Centralnym pasły się jeszcze krowy.
+
+Józef', 'APP', now() - interval '312 hours', now() - interval '312 hours' + interval '2 days', now() - interval '312 hours' + interval '2 days 3 hours'),
+  ('00000000-0000-0000-0000-00000000b10e', '00000000-0000-0000-0000-000000000411', 'TYPED', 'Panie Józefie,
+
+piszę pracę o historii Nowej Huty. Czy mógłbym zacytować Pana wspomnienia?
+
+Bartek', 'PAPER', now() - interval '144 hours', now() - interval '144 hours' + interval '2 days', now() - interval '144 hours' + interval '2 days 3 hours'),
+  ('00000000-0000-0000-0000-00000000b10e', '00000000-0000-0000-0000-000000000301', 'TYPED', 'Bartku,
+
+oczywiście, z przyjemnością. Przygotowałem listę miejsc, które warto odwiedzić — wyślę je w następnym liście.
+
+Józef', 'APP', now() - interval '22 hours', now() - interval '22 hours' + interval '2 days', null),
+  ('00000000-0000-0000-0000-00000000b10f', '00000000-0000-0000-0000-000000000412', 'TYPED', 'Panie Zbigniewie,
+
+w weekend byłam na Turbaczu i widziałam jelenia! Czy w lasach pod Tarnowem też je Pan spotyka?
+
+Lena', 'PAPER', now() - interval '120 hours', now() - interval '120 hours' + interval '2 days', now() - interval '120 hours' + interval '2 days 3 hours'),
+  ('00000000-0000-0000-0000-00000000b10f', '00000000-0000-0000-0000-000000000307', 'TYPED', 'Leno,
+
+najczęściej spotykam sarny i dziki. Ale najpiękniejsze są poranki we mgle, kiedy idę na grzyby o świcie.
+
+Zbigniew', 'APP', now() - interval '60 hours', now() - interval '60 hours' + interval '2 days', null),
+  ('00000000-0000-0000-0000-00000000b110', '00000000-0000-0000-0000-000000000417', 'TYPED', 'Pani Danuto,
+
+gotuję dla całej rodziny i szukam przepisu na prawdziwy żurek. Pomoże mi Pani?
+
+Michał', 'APP', now() - interval '168 hours', now() - interval '168 hours' + interval '2 days', now() - interval '168 hours' + interval '2 days 3 hours'),
+  ('00000000-0000-0000-0000-00000000b110', '00000000-0000-0000-0000-000000000302', 'TYPED', 'Michale,
+
+żurek tylko na domowym zakwasie! Przepis wysyłam w załączniku do następnego listu. Najważniejsze: biała kiełbasa i chrzan.
+
+Danuta', 'APP', now() - interval '72 hours', now() - interval '72 hours' + interval '2 days', null);
