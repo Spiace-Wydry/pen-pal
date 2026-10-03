@@ -149,7 +149,9 @@ isOneToOne: false
             [_ in never]: never
           }
           Functions: {
-            [_ in never]: never
+            "fast_forward_letters":
+{ Args: { "p_user": string }; Returns: number
+                           }
           }
           Enums: {
             "age_range": "18-25"|"26-40"|"41-60"|"60-75"|"75+","channel": "PAPER"|"APP","letter_kind": "TYPED"|"SCAN","pairing_status": "INVITED"|"ACTIVE"|"ENDED"|"BLOCKED","point_type": "PALPOINT"|"PALBOX"
