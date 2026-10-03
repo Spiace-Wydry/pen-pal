@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { INTERESTS, LANGUAGES } from '#shared/utils/rules'
+import { languageLabel } from '#shared/utils/polish'
 
 definePageMeta({ layout: 'plain' })
 const route = useRoute()
@@ -40,7 +41,7 @@ async function submit() {
       <div class="divider" />
       <div class="field">
         <div class="label">W jakich językach chcesz pisać?</div>
-        <ChipPicker v-model="languages" :options="LANGUAGES" multiple grid label="Języki listów" />
+        <ChipPicker v-model="languages" :options="LANGUAGES" :labels="languageLabel" multiple grid label="Języki listów" />
       </div>
       <p v-if="error" class="error" role="alert">{{ error }}</p>
     </main>

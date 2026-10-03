@@ -4,6 +4,8 @@ const cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1)
 
 export const ageLabel = (a: string) => a.replace('-', '–')
 export const channelLabel = (c: 'PAPER' | 'APP') => c === 'PAPER' ? 'pisze ręcznie' : 'pisze w aplikacji'
+/** Display label for a stored language value: 'polski' → 'Polski'. Stored values stay lowercase. */
+export const languageLabel = (l: string) => l.charAt(0).toUpperCase() + l.slice(1)
 export const initial = (name: string) => name.trim().charAt(0).toUpperCase()
 
 /** "Sobota, 3 października" */
