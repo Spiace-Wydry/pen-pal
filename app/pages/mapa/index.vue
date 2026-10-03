@@ -53,16 +53,15 @@ function locate() {
     <ClientOnly>
       <LMap
         v-model:center="center" v-model:zoom="zoom" :use-global-leaflet="false"
-        style="position: absolute; inset: 0; z-index: 0" :options="{ zoomControl: false }"
+        style="position: absolute; inset: 0; z-index: 0" :options="{ zoomControl: false, attributionControl: false }"
       >
         <LTileLayer
           url="https://tile.openstreetmap.org/{z}/{x}/{y}.png"
-          attribution="&copy; <a href='https://www.openstreetmap.org/copyright'>OpenStreetMap</a>"
           layer-type="base" name="OpenStreetMap"
         />
         <LMarker
           v-for="p in visible" :key="p.id" :lat-lng="[p.lat, p.lng]"
-          :options="{ title: p.name, alt: `${p.name}, ${typeLabel(p.type)}`, keyboard: true }"
+          :options="{ title: `${p.name}, ${typeLabel(p.type)}`, keyboard: true }"
           @click="selectedId = p.id"
         >
           <LIcon v-if="p.type === 'PALPOINT'" :icon-size="[44, 52]" :icon-anchor="[22, 51]" class-name="">
@@ -109,6 +108,7 @@ function locate() {
       </NuxtLink>
       <!-- (new copy) -->
       <p v-else class="muted">Brak punktów dla wybranych filtrów.</p>
+      <p class="muted" style="font-size: 12px; margin: 0">© <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a></p>
       <p v-if="locError" class="error" role="alert">{{ locError }}</p>
     </div>
   </div>
