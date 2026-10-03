@@ -1,7 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
-  devtools: { enabled: true },
+  devtools: { enabled: false },
   modules: ['@nuxtjs/supabase', '@nuxtjs/leaflet', '@nuxt/fonts', '@vite-pwa/nuxt'],
   css: ['~/assets/css/penpal.css', '~/assets/css/main.css'],
   app: {
@@ -17,7 +17,15 @@ export default defineNuxtConfig({
     },
   },
   // All data goes through server/api; the client only uses Supabase auth. Our own middleware handles redirects.
-  supabase: { redirect: false, types: '~~/types/database.ts' },
+  supabase: {
+    redirect: false,
+    types: '~~/types/database.ts',
+  },
+  // Secure cookies are dropped over plain http, so phones on the LAN couldn't keep a session in dev.
+  // Production is served over https and keeps the module default (secure: true).
+  $development: {
+    supabase: { cookieOptions: { maxAge: 60 * 60 * 8, sameSite: 'lax', secure: false } },
+  },
   runtimeConfig: { adminCode: '' },
   fonts: {
     families: [

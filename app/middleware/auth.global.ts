@@ -1,4 +1,4 @@
-const PUBLIC = ['/', '/jak-to-dziala', '/rejestracja', '/admin/skan', '/dev/login']
+const PUBLIC = ['/', '/jak-to-dziala', '/rejestracja', '/logowanie', '/admin/skan', '/dev/login']
 const ONBOARDING = ['/profil/o-mnie', '/profil/zainteresowania', '/profil/kanal']
 
 export default defineNuxtRouteMiddleware(async (to) => {
@@ -12,7 +12,7 @@ export default defineNuxtRouteMiddleware(async (to) => {
     useProfile().profile.value = null
     return PUBLIC.includes(to.path) ? undefined : navigateTo('/')
   }
-  if (to.path === '/') return navigateTo('/listy')
+  if (to.path === '/' || to.path === '/logowanie') return navigateTo('/listy')
   if (PUBLIC.includes(to.path) || ONBOARDING.includes(to.path)) return
 
   const { profile, refreshProfile } = useProfile()

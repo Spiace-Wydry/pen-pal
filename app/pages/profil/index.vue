@@ -22,6 +22,12 @@ async function toggle(key: 'notifyNewLetter' | 'notifyDelivered', el: HTMLInputE
   }
 }
 
+async function signOut() {
+  await useSupabaseClient().auth.signOut()
+  profile.value = null
+  await navigateTo('/')
+}
+
 async function fastForward() {
   ffMessage.value = ''
   try {
@@ -91,6 +97,9 @@ async function fastForward() {
         <span class="row"><AppIcon name="shield" />Zgłoś korespondenta</span>
         <AppIcon name="chevron" style="color: #5E667A" />
       </NuxtLink>
+
+      <!-- (new copy) -->
+      <AppButton variant="outline" @click="signOut">Wyloguj się</AppButton>
 
       <!-- Demo helper: low-key on purpose -->
       <div style="display: flex; flex-direction: column; align-items: center; gap: 6px; padding-top: 8px">
