@@ -12,10 +12,14 @@ const premiumInfo = ref(false)
 const ffMessage = ref('')
 const error = ref('')
 
-async function toggle(key: 'notifyNewLetter' | 'notifyDelivered', value: boolean) {
+async function toggle(key: 'notifyNewLetter' | 'notifyDelivered', el: HTMLInputElement) {
+  const value = el.checked
   error.value = ''
   try { await saveProfile({ [key]: value }) }
-  catch (e) { error.value = errorText(e) }
+  catch (e) {
+    el.checked = !value // uncontrolled input: revert the DOM on failed save
+    error.value = errorText(e)
+  }
 }
 
 async function fastForward() {
@@ -47,7 +51,7 @@ async function fastForward() {
         <div class="label">Zainteresowania</div>
         <div class="chips" style="gap: 6px">
           <span v-for="i in profile.interests" :key="i" class="tag">{{ i }}</span>
-          <NuxtLink to="/profil/zainteresowania?edit=1" style="align-self: center; font-weight: 700">Zmień</NuxtLink>
+          <NuxtLink to="/profil/zainteresowania?edit=1" style="align-self: center; font-weight: 700; min-height: 48px; display: inline-flex; align-items: center">Zmień</NuxtLink>
         </div>
         <div class="divider" />
         <div class="row" style="justify-content: space-between">
@@ -74,11 +78,11 @@ async function fastForward() {
         <div class="label">Powiadomienia</div>
         <label class="row" style="justify-content: space-between; min-height: 48px; font-size: 17px">
           Przyszedł nowy list
-          <input type="checkbox" :checked="profile.notifyNewLetter" style="width: 26px; height: 26px; accent-color: #1F2A44; margin: 0" @change="toggle('notifyNewLetter', ($event.target as HTMLInputElement).checked)">
+          <input type="checkbox" :checked="profile.notifyNewLetter" style="width: 26px; height: 26px; accent-color: #1F2A44; margin: 0" @change="toggle('notifyNewLetter', $event.target as HTMLInputElement)">
         </label>
         <label class="row" style="justify-content: space-between; min-height: 48px; font-size: 17px">
           Mój list dotarł
-          <input type="checkbox" :checked="profile.notifyDelivered" style="width: 26px; height: 26px; accent-color: #1F2A44; margin: 0" @change="toggle('notifyDelivered', ($event.target as HTMLInputElement).checked)">
+          <input type="checkbox" :checked="profile.notifyDelivered" style="width: 26px; height: 26px; accent-color: #1F2A44; margin: 0" @change="toggle('notifyDelivered', $event.target as HTMLInputElement)">
         </label>
         <p v-if="error" class="error" role="alert">{{ error }}</p>
       </section>
