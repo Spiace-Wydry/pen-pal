@@ -96,7 +96,7 @@ Postgres tables in Supabase (snake_case in SQL, camelCase in TS types). Auth use
 ## Demo helpers (hackathon only)
 
 - Seed: Kuba (18–25, APP) paired with Halina (60–75, PAPER, PiszuKod `PP-7K3D`) and Tadeusz (75+, PAPER, `PP-4MWR`); a pending invite; candidates Krystyna etc.; ~6 Kraków points (fictional names, real coordinates).
-- A hidden **"Przewiń czas o 2 dni"** (fast-forward) button in Profil so judges can see delivery without waiting.
+- Demo fast-forward: `POST /api/demo/fast-forward` shifts the signed-in user's letters 2 days back (no button in the UI).
 - An admin page `/admin/skan` to simulate a PiszuPoint scan: pick a PiszuKod, upload a photo, it lands in the right pairing.
 
 ## Out of scope for MVP
@@ -105,4 +105,4 @@ Real postal integration, OCR, QR envelopes, PiszuPoint staff panel, ID verificat
 
 ## Definition of done
 
-The full journey works on a phone in Polish: sign up → profile → matches → invite/accept → write → choose paper → status (fast-forward) → read a scanned letter → reply → map → point details → report/block. Screens stay visually consistent with the existing design system.
+The full journey works on a phone in Polish: sign up → profile → matches → invite/accept → write → status → read a scanned letter → reply → map → point details → report/block. Screens stay visually consistent with the existing design system.

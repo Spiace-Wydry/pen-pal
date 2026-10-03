@@ -23,7 +23,6 @@ const name = computed(() => data.value?.pairing.partner.name ?? '')
         <p class="p">{{ l.delivered ? `List dotarł ${onDay(l.deliverAt)}.` : `${name} dostanie go ${onDay(l.deliverAt)}.` }}</p>
       </div>
       <DeliveryTimeline :steps="l.steps" />
-      <a v-if="l.deliveryChannel === 'PAPER'" :href="`/api/letters/${l.id}/pdf`" target="_blank" rel="noopener" style="font-size: 17px; min-height: 48px; display: inline-flex; align-items: center">Zobacz wydruk (PDF)</a>
     </main>
     <div class="foot">
       <AppButton to="/listy">Wróć do moich listów</AppButton>

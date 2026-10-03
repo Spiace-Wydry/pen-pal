@@ -6,7 +6,6 @@ const { profile, refreshProfile, saveProfile } = useProfile()
 await refreshProfile()
 
 const premiumInfo = ref(false)
-const ffMessage = ref('')
 const error = ref('')
 
 async function toggle(key: 'notifyNewLetter', el: HTMLInputElement) {
@@ -23,15 +22,6 @@ async function signOut() {
   await useSupabaseClient().auth.signOut()
   profile.value = null
   await navigateTo('/')
-}
-
-async function fastForward() {
-  ffMessage.value = ''
-  try {
-    const { moved } = await $fetch<{ moved: number }>('/api/demo/fast-forward', { method: 'POST' })
-    ffMessage.value = `Gotowe — przesunięto listy: ${moved}.` // (new copy)
-  }
-  catch (e) { ffMessage.value = errorText(e) }
 }
 </script>
 
@@ -106,12 +96,6 @@ async function fastForward() {
 
       <!-- (new copy) -->
       <AppButton variant="outline" @click="signOut">Wyloguj się</AppButton>
-
-      <!-- Demo helper: low-key on purpose -->
-      <div style="display: flex; flex-direction: column; align-items: center; gap: 6px; padding-top: 8px">
-        <button type="button" class="muted" style="background: none; border: none; text-decoration: underline; min-height: 48px; cursor: pointer; font-family: inherit" @click="fastForward">Przewiń czas o 2 dni</button>
-        <p v-if="ffMessage" class="muted" role="status">{{ ffMessage }}</p>
-      </div>
     </main>
   </div>
 </template>
