@@ -5,6 +5,12 @@ import { ageLabel, channelLabel, initial } from '#shared/utils/polish'
 definePageMeta({ layout: 'plain' })
 const id = useRoute().params.id as string
 const { data: p, error: loadError } = await useFetch<PairingView>(`/api/pairings/${id}`)
+const { profile, refreshProfile } = useProfile()
+if (!profile.value) await refreshProfile()
+if (p.value) {
+  if (p.value.status === 'ACTIVE') await navigateTo(`/korespondenci/${id}`, { replace: true })
+  else if (p.value.status !== 'INVITED' || p.value.inviterId === profile.value?.id) await navigateTo('/listy', { replace: true })
+}
 const error = ref('')
 const busy = ref(false)
 
@@ -44,7 +50,7 @@ async function act(action: 'accept' | 'decline') {
       <p v-if="error" class="error" role="alert">{{ error }}</p>
     </main>
     <p v-else-if="loadError" class="error" role="alert" style="padding: 20px">{{ errorText(loadError) }}</p>
-    <div v-if="p?.status === 'INVITED'" class="foot">
+    <div v-if="p?.status === 'INVITED' && p.inviterId !== profile?.id" class="foot">
       <AppButton variant="stamp" :disabled="busy" @click="act('accept')">Przyjmij zaproszenie</AppButton>
       <AppButton variant="outline" :disabled="busy" @click="act('decline')">Odrzuć</AppButton>
     </div>
