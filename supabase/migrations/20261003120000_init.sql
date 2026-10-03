@@ -107,7 +107,10 @@ create policy "read pen pal profiles" on public.profiles for select using (
           where p.status in ('INVITED', 'ACTIVE')
             and ((p.user_a_id = auth.uid() and p.user_b_id = profiles.id)
               or (p.user_b_id = auth.uid() and p.user_a_id = profiles.id))));
-create policy "update own profile" on public.profiles for update using (id = auth.uid()) with check (id = auth.uid());
+
+-- email and the premium/notify flags are server-only (service role); pen pals and owners never read them via the client.
+revoke select on public.profiles from anon, authenticated;
+grant select (id, name, age_range, channel, bio, languages, interests, created_at) on public.profiles to authenticated;
 
 create policy "own private profile" on public.private_profiles for all using (id = auth.uid()) with check (id = auth.uid());
 
