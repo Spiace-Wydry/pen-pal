@@ -8,6 +8,8 @@ const result = ref('')
 const error = ref('')
 const busy = ref(false)
 
+const fileInput = ref<HTMLInputElement>()
+
 async function submit() {
   error.value = ''
   result.value = ''
@@ -20,7 +22,10 @@ async function submit() {
     files.value.forEach(f => fd.append('pages', f))
     const r = await $fetch<{ id: string, to: string }>('/api/admin/scan', { method: 'POST', body: fd })
     result.value = `List zeskanowany. Dotrze do: ${r.to} za 2 dni.`
+    palKod.value = ''
+    from.value = ''
     files.value = []
+    if (fileInput.value) fileInput.value.value = '' // native input keeps filenames otherwise
   }
   catch (e) { error.value = errorText(e) }
   finally { busy.value = false }
@@ -45,7 +50,7 @@ async function submit() {
       </div>
       <div class="field">
         <label class="label" for="pages">Zdjęcia stron</label>
-        <input id="pages" class="input" style="padding-top: 14px" type="file" accept="image/jpeg,image/png" multiple required @change="files = Array.from(($event.target as HTMLInputElement).files ?? [])">
+        <input id="pages" ref="fileInput" class="input" style="padding-top: 14px" type="file" accept="image/jpeg,image/png" multiple required @change="files = Array.from(($event.target as HTMLInputElement).files ?? [])">
       </div>
       <InfoNote v-if="result" icon="check">{{ result }}</InfoNote>
       <p v-if="error" class="error" role="alert">{{ error }}</p>

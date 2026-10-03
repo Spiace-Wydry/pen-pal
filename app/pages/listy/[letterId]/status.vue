@@ -4,7 +4,7 @@ import { decline, onDay } from '#shared/utils/polish'
 
 definePageMeta({ layout: 'plain' })
 const letterId = useRoute().params.letterId as string
-const { data } = await useFetch<LetterResponse>(`/api/letters/${letterId}`)
+const { data, error } = await useFetch<LetterResponse>(`/api/letters/${letterId}`)
 if (data.value && !data.value.letter.mine) await navigateTo(`/listy/${letterId}`, { replace: true })
 const l = computed(() => data.value?.letter)
 const name = computed(() => data.value?.pairing.partner.name ?? '')
@@ -29,4 +29,5 @@ const name = computed(() => data.value?.pairing.partner.name ?? '')
       <AppButton to="/listy">Wróć do moich listów</AppButton>
     </div>
   </div>
+  <p v-else-if="error" class="error" role="alert" style="padding: 20px">{{ errorText(error) }}</p>
 </template>
