@@ -28,6 +28,7 @@ if (!profile.value) await refreshProfile()
     </main>
     <div class="foot">
       <AppButton to="/propozycje">Zobacz propozycje</AppButton>
+      <AppButton variant="outline" to="/listy">Przejdź do moich listów</AppButton>
       <p class="muted" style="text-align: center">Powiadomimy Cię SMS-em i w aplikacji.</p>
     </div>
   </div>

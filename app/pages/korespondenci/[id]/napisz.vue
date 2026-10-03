@@ -5,7 +5,7 @@ import { topicFor } from '#shared/utils/topics'
 
 definePageMeta({ layout: 'plain' })
 const id = useRoute().params.id as string
-const { data: p } = await useFetch<PairingView>(`/api/pairings/${id}`)
+const { data: p, error } = await useFetch<PairingView>(`/api/pairings/${id}`)
 if (p.value && !p.value.canWrite) await navigateTo(`/korespondenci/${id}`, { replace: true })
 
 const { draft, persist } = useLetterDraft(id)
@@ -47,4 +47,5 @@ function next() {
       <AppButton :disabled="!draft.body.trim()" @click="next">Dalej</AppButton>
     </div>
   </div>
+  <p v-else-if="error" class="error" role="alert" style="padding: 20px">{{ errorText(error) }}</p>
 </template>

@@ -51,6 +51,7 @@ async function invite(userId: string) {
       <template v-else>
         <h1 class="h1">Szukamy dla Ciebie korespondenta</h1>
         <p class="p">Damy Ci znać, gdy kogoś znajdziemy.</p>
+        <AppButton variant="outline" to="/listy">Przejdź do moich listów</AppButton>
       </template>
       <p v-if="error || loadError" class="error" role="alert">{{ error || errorText(loadError) }}</p>
     </main>

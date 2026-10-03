@@ -4,7 +4,7 @@ import { channelLabel, decline, initial } from '#shared/utils/polish'
 
 definePageMeta({ layout: 'plain' })
 const id = useRoute().params.id as string
-const [{ data: p }, { data: letters }] = await Promise.all([
+const [{ data: p, error }, { data: letters }] = await Promise.all([
   useFetch<PairingView>(`/api/pairings/${id}`),
   useFetch<LetterView[]>(`/api/pairings/${id}/letters`),
 ])
@@ -32,4 +32,5 @@ if (p.value && p.value.status !== 'ACTIVE' && p.value.status !== 'INVITED') awai
       <p v-else class="muted" style="text-align: center">Odpiszesz, gdy przyjdzie list od {{ decline(p.partner.name, 'gen') }}.</p>
     </div>
   </div>
+  <p v-else-if="error" class="error" role="alert" style="padding: 20px">{{ errorText(error) }}</p>
 </template>

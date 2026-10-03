@@ -5,7 +5,7 @@ import { onDay } from '#shared/utils/polish'
 
 definePageMeta({ layout: 'plain' })
 const id = useRoute().params.id as string
-const { data: p } = await useFetch<PairingView>(`/api/pairings/${id}`)
+const { data: p, error: loadError } = await useFetch<PairingView>(`/api/pairings/${id}`)
 const { draft, clear } = useLetterDraft(id)
 const channel = ref(p.value?.partner.channel === 'PAPER' ? 'PAPER' : 'APP')
 // Display estimate only; the server sets deliver_at.
@@ -69,6 +69,7 @@ async function send() {
       <AppButton variant="stamp" :disabled="busy" @click="send">Wyślij list</AppButton>
     </div>
   </div>
+  <p v-else-if="loadError" class="error" role="alert" style="padding: 20px">{{ errorText(loadError) }}</p>
 </template>
 
 <style scoped>
