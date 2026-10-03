@@ -7,11 +7,9 @@ export const LANGUAGES = ['polski', 'angielski', 'niemiecki', 'ukraiński'] as c
 
 export const pairLimit = (isPremium: boolean) => isPremium ? 5 : 3
 
-// User decision: only 18–25 ↔ 60+ are matched.
-const YOUNG: readonly string[] = ['18-25']
-const SENIOR: readonly string[] = ['60-75', '75+']
+/** Different generations = age ranges at least two steps apart (e.g. 26–40 ↔ 60–75, 18–25 ↔ 41–60). */
 export const isOtherGeneration = (a: AgeRange, b: AgeRange) =>
-  (YOUNG.includes(a) && SENIOR.includes(b)) || (SENIOR.includes(a) && YOUNG.includes(b))
+  Math.abs(AGE_RANGES.indexOf(a) - AGE_RANGES.indexOf(b)) >= 2
 
 export const sharesLanguage = (a: readonly string[], b: readonly string[]) => a.some(l => b.includes(l))
 export const sharedInterests = (a: readonly string[], b: readonly string[]) => a.filter(i => b.includes(i))

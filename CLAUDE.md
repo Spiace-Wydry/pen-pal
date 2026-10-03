@@ -86,7 +86,7 @@ Postgres tables in Supabase (snake_case in SQL, camelCase in TS types). Auth use
 1. **Privacy:** never expose another user's city or postal address to pen pals. Profile cards show name, age range, channel, interests, bio only.
 2. **Age:** 18+ only; block sign-up without the checkbox.
 3. **Pen-pal limit:** max 3 ACTIVE pairings per user, Premium 5. When full, show "Masz już {limit} korespondentów. Zakończ jedną znajomość, aby poznać kogoś nowego."
-4. **Matching:** candidates from the other generation (60+ ↔ 18–30 as the default split), share ≥ 1 letter language, under their limit, not previously paired or blocked. Score = 2 × shared interests + 1 same region + 1 same channel. Show top 3.
+4. **Matching:** candidates from another generation (age ranges at least two steps apart on 18–25 / 26–40 / 41–60 / 60–75 / 75+), share ≥ 1 letter language, under their limit, not previously paired or blocked. Score = 2 × shared interests + 1 same region + 1 same channel. Show top 3.
 5. **PalKod:** generated per pairing; 4 chars from an alphabet without confusable characters (no 0/O/1/I), prefix `PP-`.
 6. **Slow mail:** every letter, app→app included, has `deliverAt = sentAt + 2 days`. Recipients cannot see it before then. Status shows "Twój list jest w drodze".
 7. **One letter at a time:** you can write to a pen pal only after receiving their latest letter (or for the first letter).
