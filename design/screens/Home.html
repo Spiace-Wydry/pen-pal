@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<title>PenPal — Moi korespondenci</title>
+
+<link rel="stylesheet" href="../penpal.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&amp;family=Fraunces:opsz,wght@9..144,600;9..144,700&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#1F2A44}a:hover{color:#A8432A}
+</style>
+</helmet>
+<div class="scr">
+  <div style="padding: 32px 20px 8px; display: flex; flex-direction: column; gap: 4px">
+    <div class="muted">Sobota, 3 października</div>
+    <h1 class="h1">Dzień dobry, Kuba</h1>
+  </div>
+  <div class="body" style="gap: 14px; padding-top: 12px">
+    <div class="row" style="justify-content: space-between">
+      <div class="h2">Moi korespondenci</div>
+      <div class="muted" style="font-weight: 700">2 z 3</div>
+    </div>
+    <a class="card" href="Korespondencja.html" style="display: flex; flex-direction: column; gap: 12px; border: 2px solid #A8432A">
+      <div class="row">
+        <div class="avatar">H</div>
+        <div style="flex: 1">
+          <div class="h2" style="font-size: 20px">Halina</div>
+          <div class="muted">PalKod PP-7K3D · pisze ręcznie</div>
+        </div>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#5E667A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"></path></svg>
+      </div>
+      <div class="row" style="background: #F3E2DA; border-radius: 10px; padding: 10px 12px; gap: 10px">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#A8432A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M3 7l9 6 9-6"></path></svg>
+        <span style="font-weight: 700; color: #8C3520">Nowy list! Przyszedł 1 października</span>
+      </div>
+    </a>
+    <a class="card" href="Korespondencja.html" style="display: flex; flex-direction: column; gap: 12px">
+      <div class="row">
+        <div class="avatar" style="background: #D9E0D0">T</div>
+        <div style="flex: 1">
+          <div class="h2" style="font-size: 20px">Tadeusz</div>
+          <div class="muted">PalKod PP-4MWR · pisze ręcznie</div>
+        </div>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#5E667A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"></path></svg>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 8px">
+        <div class="row" style="justify-content: space-between"><span style="font-size: 15px">Twój list jest w drodze</span><span class="muted">dotrze 5 paź</span></div>
+        <div class="progress"><div class="progress-bar" style="width: 50%; background: #1F2A44"></div></div>
+      </div>
+    </a>
+    <a class="card" href="Propozycje.html" style="display: flex; align-items: center; gap: 14px; background: transparent; border: 2px dashed #CDBF9F">
+      <div class="avatar" style="background: transparent; border: 2px dashed #CDBF9F"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1F2A44" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg></div>
+      <div>
+        <div style="font-weight: 700; font-size: 17px">Wolne miejsce</div>
+        <div class="muted">Znajdź trzeciego korespondenta</div>
+      </div>
+    </a>
+    <p class="muted" style="text-align: center">Chcesz pisać z większą liczbą osób? <a href="Ustawienia.html" style="font-weight: 700">PenPal Premium</a></p>
+  </div>
+  <nav class="nav">
+    <a class="nav-a nav-on" href="Home.html"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M3 7l9 6 9-6"></path></svg>Listy</a>
+    <a class="nav-a" href="Mapa.html"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"></path><circle cx="12" cy="9.5" r="2.5"></circle></svg>Mapa</a>
+    <a class="nav-a" href="Ustawienia.html"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"></path></svg>Profil</a>
+  </nav>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

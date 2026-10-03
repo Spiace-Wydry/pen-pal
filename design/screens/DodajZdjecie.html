@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<title>PenPal — Dodaj zdjęcie listu</title>
+
+<link rel="stylesheet" href="../penpal.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&amp;family=Fraunces:opsz,wght@9..144,600;9..144,700&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#1F2A44}a:hover{color:#A8432A}
+</style>
+</helmet>
+<div class="scr">
+  <div class="top">
+    <a class="back" href="Korespondencja.html" aria-label="Wstecz"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"></path></svg></a>
+    <div style="flex: 1">
+      <div class="top-title">Dodaj zdjęcie listu</div>
+      <div class="muted" style="font-size: 14px">Do: Halina</div>
+    </div>
+  </div>
+  <div class="body" style="gap: 16px">
+    <p class="p">Napisałeś list ręcznie? Zrób zdjęcie każdej strony — dostarczymy je jak skan.</p>
+    <button style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; min-height: 180px; border: 2px dashed #A8432A; border-radius: 16px; background: #FBF7EE; color: #1F2A44; font-family: inherit; cursor: pointer">
+      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#A8432A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h3l2-3h6l2 3h3v11H4z"></path><circle cx="12" cy="13" r="3.5"></circle></svg>
+      <span style="font-weight: 700; font-size: 18px">Zrób zdjęcie strony</span>
+      <span class="muted">lub wybierz z galerii</span>
+    </button>
+    <div class="label">Dodane strony (2)</div>
+    <div class="row" style="gap: 12px">
+      <div style="position: relative">
+        <svg width="96" height="124" viewBox="0 0 96 124" fill="none"><rect x="1" y="1" width="94" height="122" rx="4" fill="#FFFDF8" stroke="#CDBF9F"></rect><path d="M12 22c8-3 14 2 22-1s14 1 20-1 12 1 30 0M12 40c7-2 15 2 23 0s13 1 20-1 10 1 29 0M12 58c8-3 14 2 22-1s14 1 20-1M12 76c7-2 15 2 23 0s13 1 20-1 10 1 29 0M12 94c8-2 13 1 20 0" stroke="#3B4560" stroke-width="1.5" stroke-linecap="round"></path></svg>
+        <span class="tag" style="position: absolute; left: 6px; bottom: 6px; min-height: 22px; font-size: 12px">1</span>
+      </div>
+      <div style="position: relative">
+        <svg width="96" height="124" viewBox="0 0 96 124" fill="none"><rect x="1" y="1" width="94" height="122" rx="4" fill="#FFFDF8" stroke="#CDBF9F"></rect><path d="M12 22c8-3 14 2 22-1s14 1 20-1 12 1 30 0M12 40c7-2 15 2 23 0s13 1 20-1 10 1 29 0M12 58c8-3 14 2 22-1" stroke="#3B4560" stroke-width="1.5" stroke-linecap="round"></path></svg>
+        <span class="tag" style="position: absolute; left: 6px; bottom: 6px; min-height: 22px; font-size: 12px">2</span>
+      </div>
+    </div>
+    <div class="note"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1F2A44" stroke-width="2" stroke-linecap="round" style="flex: none; margin-top: 1px"><circle cx="12" cy="12" r="9"></circle><path d="M12 11v5M12 8h.01"></path></svg>Połóż kartkę na płaskim blacie, w dobrym świetle.</div>
+  </div>
+  <div class="foot">
+    <a class="btn" href="Wyslij.html">Dalej</a>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

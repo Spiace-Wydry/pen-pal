@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<title>PenPal — Propozycje</title>
+
+<link rel="stylesheet" href="../penpal.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&amp;family=Fraunces:opsz,wght@9..144,600;9..144,700&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#1F2A44}a:hover{color:#A8432A}
+</style>
+</helmet>
+<div class="scr">
+  <div class="top">
+    <a class="back" href="Szukamy.html" aria-label="Wstecz"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"></path></svg></a>
+    <div class="top-title">Propozycje</div>
+  </div>
+  <div class="body" style="gap: 14px">
+    <div style="display: flex; flex-direction: column; gap: 4px">
+      <h1 class="h1" style="font-size: 28px">Znaleźliśmy kogoś dla Ciebie!</h1>
+      <p class="muted">Zaproś jedną osobę do korespondencji.</p>
+    </div>
+    <div class="card" style="display: flex; flex-direction: column; gap: 10px">
+      <div class="row">
+        <div class="avatar">H</div>
+        <div style="flex: 1">
+          <div class="h2" style="font-size: 20px">Halina</div>
+          <div class="muted">60–75 · pisze ręcznie</div>
+        </div>
+      </div>
+      <p class="p" style="font-size: 16px">Emerytowana polonistka. Lubię wspominać i słuchać.</p>
+      <div class="row" style="justify-content: space-between">
+        <div class="chips" style="gap: 6px"><span class="tag">Książki</span><span class="tag">Historia</span></div>
+        <a class="btn" href="NowyKorespondent.html" style="width: auto; min-height: 48px; padding: 0 18px; font-size: 16px">Zaproś</a>
+      </div>
+    </div>
+    <div class="card" style="display: flex; flex-direction: column; gap: 10px">
+      <div class="row">
+        <div class="avatar" style="background: #D9E0D0">T</div>
+        <div style="flex: 1">
+          <div class="h2" style="font-size: 20px">Tadeusz</div>
+          <div class="muted">75+ · pisze ręcznie</div>
+        </div>
+      </div>
+      <p class="p" style="font-size: 16px">Przez 50 lat fotografowałem Kraków.</p>
+      <div class="row" style="justify-content: space-between">
+        <div class="chips" style="gap: 6px"><span class="tag">Fotografia</span><span class="tag">Historia</span></div>
+        <a class="btn" href="NowyKorespondent.html" style="width: auto; min-height: 48px; padding: 0 18px; font-size: 16px">Zaproś</a>
+      </div>
+    </div>
+    <div class="card" style="display: flex; flex-direction: column; gap: 10px">
+      <div class="row">
+        <div class="avatar" style="background: #E9D3CC">K</div>
+        <div style="flex: 1">
+          <div class="h2" style="font-size: 20px">Krystyna</div>
+          <div class="muted">60–75 · pisze w aplikacji</div>
+        </div>
+      </div>
+      <p class="p" style="font-size: 16px">Zwiedziłam pół Europy pociągiem.</p>
+      <div class="row" style="justify-content: space-between">
+        <div class="chips" style="gap: 6px"><span class="tag">Podróże</span><span class="tag">Książki</span></div>
+        <a class="btn" href="NowyKorespondent.html" style="width: auto; min-height: 48px; padding: 0 18px; font-size: 16px">Zaproś</a>
+      </div>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

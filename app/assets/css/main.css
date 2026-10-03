@@ -1,0 +1,21 @@
+:root {
+  --paper: #F6F0E4; --card: #FBF7EE; --sheet: #FFFDF8; --ink: #1F2A44;
+  --stamp: #A8432A; --muted: #5E667A; --line: #E3D8C3; --line-strong: #CDBF9F;
+}
+html, body { background: var(--paper); }
+a { color: var(--ink); }
+a:hover { color: var(--stamp); }
+
+/* Design frames are a fixed 390×844; the app fills the phone instead and scrolls. */
+.scr { width: 100%; max-width: 480px; height: auto; min-height: 100dvh; margin: 0 auto; overflow: visible; }
+.page { flex: 1; display: flex; flex-direction: column; min-height: 0; }
+.body { overflow: visible; }
+.nav { position: sticky; bottom: 0; z-index: 1000; }
+
+.btn[disabled], .btn2[disabled] { opacity: .5; cursor: not-allowed; }
+.chip, .radio { cursor: pointer; }
+.chip { min-height: 48px; }
+.handwriting { font-family: 'Caveat', cursive; }
+.error { color: #8C3520; font-size: 16px; margin: 0; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+:focus-visible, .radio:has(input:focus-visible) { outline: 3px solid var(--stamp); outline-offset: 2px; }
